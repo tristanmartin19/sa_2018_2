@@ -1,0 +1,5 @@
+=== Direkter Import der shop_finder_db aus dem Dump ===
+
+Mit Root-Rechten und vorher angelegter shop_finder_db!
+
+mysql shop_finder_db < shop_finder_db-dump.sql
