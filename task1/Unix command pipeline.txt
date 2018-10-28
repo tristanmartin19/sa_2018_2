@@ -1,4 +1,4 @@
-=== Verwendetetes Betriebssystem ===
+﻿=== Verwendetetes Betriebssystem ===
 (X)ubuntu 18.04.01 LTS
 
 === Starten der Pipeline ===
@@ -22,8 +22,18 @@ Ergebnis: MariaDB-Datenbank "shop_finder_db" mit Tabellen "shops" und "points of
 ===Zwischenergebnisse  zum Testen/Anschauen (mit Ausgabeumleitung in Dateien bzw. Pipe zur Daten)===
 
 osmfilter 2018-austria-latest.osm --keep= --keep-nodes="shop=" > shops_in_austria.osm 
-osmconvert shops_in_austria.osm -B=Graz.poly --all-to-nodes --csv="@id @lon @lat name shop website" > shops-in_graz.csv
-cat shops_in_graz.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk > sql_output.log
+osmconvert shops_in_austria.osm -B=Graz.poly --all-to-nodes --csv="@id @lon @lat name shop website" > shops_in_graz.csv
+cat shops_in_graz.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
+
+Testen:
+cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
+cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk > output.sql
+
+
+=== TODOs ===
+* "no" in Feldern löschen
+* NICHT JETZT :) IRGENDWANN: :))) Kastner & Öhler durch cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' ausselektiert? -> Wegen Sonderzeichen! Billö statt Billa geht auch nicht
+* Durch Strichpunt getrennte Mehrfeinträge stehen momentan mit eigern ID in der shop_category-Tabelle:  in 2 Kateogorien aufsplitten und in shop_categories-Tabelle erfassen; zusätzliche  Tabelle mit shop_ID und dazugehörigen shop_categoy_IDs? -> Moment ist eigentlcih die erste Normalform (NICHT 2 Attribute in einem Spalteneintrag) nicht erfüllt (!?)
 
 === Datenbereinigung ===
 
@@ -34,6 +44,15 @@ cat shops_in_graz.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands
 
 === Aktuelle Funktionalität, eventuelle Erweiterungen/Abänderungen ===
 
+[2018-10-25]
+
 * Bis jetzt liest die Pipeline die Shop-ID, Höhe, Länge, Namen, Kategorie und Website von der OpenStreeMap-Datei ein und macht daraus eine Tabelle shops mit den entsprechenden Attributen und der ID als Primärschlüssel. Zusätzlich wird aus graz_poi_complete.csv eine Tabelle points_of_interest gebildet (siehe commands.awk) .
 
+
 * Es wäre zu überlegen, ob wir im Sinne einer sauberen Abbildung in ein Datenbankshema nicht eine eigene Tabelle mit den Shop-Kategorien per Awk-Skript erstellen und sie mit einem (künstlichen) Fremdschlüssel mit der shops-Tabelle vernknüpfen. Wär ein bisschen tricky, aber ich hab programmiertechnisch schon eine Idee, wie man das in der Pipeline bzw. mit Awk-Skript angehen könnte.
+
+[2018-10-28]
+
+Wie beim Treffen am 25.10. besprochen hab ich jetzt ergänzt:
+* Eigene fortlaufende IDs neben OSM-IDs für shops und points_of_interest
+* Eigene Tabelle shop_categories mit dazugehörigen Fremdschlüsseln in shop-Tabelle
