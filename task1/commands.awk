@@ -1,3 +1,5 @@
+# Start with awk -f command.awk shops-graz.csv
+
 BEGIN 	{       ### CONSTANTS        
                         FS=OFS="\t" 	# FS := built-in variable Field Separator, OFS := Output Field Separator
                         categories[""] = "NULL"
@@ -28,8 +30,8 @@ BEGIN 	{       ### CONSTANTS
 $4 !=""	{ # Column "name" must not be empty, requirement in task 1.
         
                         ### DELETING "yes" ENTRIES                        
-                        # Deletes "yes" in all columns from the 5th one, NOT in the "name" column, because a shop could theoretically be called yes".	
-                        for (i = 5; i <= NF; i++){gsub(/^yes$/,"", $i)} # NF := built-in varialbe Number Of Fields.                        
+                        # Deletes "yes"/"no" in all columns from the 5th one, NOT in the "name" column, because a shop could theoretically be called yes"/"no".	
+                        for (i = 5; i <= NF; i++){gsub(/^yes$|^no$/,"", $i)} # NF := built-in varialbe Number Of Fields.                        
                         
                         ### POPULATION OF DATABASE ###
                         
@@ -37,12 +39,13 @@ $4 !=""	{ # Column "name" must not be empty, requirement in task 1.
                         print "INSERT INTO shops VALUES ("NR","$1","$2","$3",\""$4"\",\""$6"\");"# NR = Nubmer of Row
 
                         ## Table 'shop_has_categories' ##			
-                        # Creates an associative array with unique shop categories als keys and an index.	
+                        # Creates an associative array with unique shop categories as keys and an index.	
                         split($5, shop_field, /; */) # Split shop categories with two or more entries separeted by a semicolon, e.g. "photo_studio; copyshop"
                         for (i in shop_field) {
-                                #print shop_field[i] # DEBUG
-                                if (!(shop_field[i] in categories)){categories[shop_field[i]] = ++j}
-                                print "INSERT INTO shop_has_categories (shop_id, category_id) VALUES ("NR", "categories[shop_field[i]]");"
+				if (!(shop_field[i]  ~ /^yes$|^no$/)) { # Filter out "yes" or "no" as categories. Some categorie entries are e.g. "yes;photo_studio;copyshop"
+					if (!(shop_field[i] in categories)){categories[shop_field[i]] = ++j}
+					print "INSERT INTO shop_has_categories (shop_id, category_id) VALUES ("NR", "categories[shop_field[i]]");"
+				}				
                         }# category field not empty and not in array yet		                        
                 }
 END 	{
