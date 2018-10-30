@@ -16,7 +16,7 @@
 
 osmfilter 2018-austria-latest.osm --keep= --keep-nodes="shop=" | osmconvert - -B=Graz.poly --all-to-nodes --csv="@id @lon @lat name shop website" | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
 
-Ergebnis: MariaDB-Datenbank "shop_finder_db" mit Tabellen "shops" und "points of interest"
+Ergebnis: MariaDB-Datenbank "sa_shop_finder" mit Tabellen "shops", "shop_categories", "shop_has_categories" und "points of interest".
 
 
 ===Zwischenergebnisse  zum Testen/Anschauen (mit Ausgabeumleitung in Dateien bzw. Pipe zur Daten)===
@@ -29,11 +29,18 @@ Testen:
 cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
 cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk > output.sql
 
+=== Direkter Export bzw. Import der Datenbank mit mysqldump  ===
+
+Exportieren: mysqldump -p sa_shop_finder > sa_shop_finder-dump.sql
+Importierten: mysqldump -p sa_shop_finder < sa_shop_finder-dump.sql
+
 
 === TODOs ===
 * "no" in Feldern löschen
-* NICHT JETZT :) IRGENDWANN: :))) Kastner & Öhler durch cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' ausselektiert? -> Wegen Sonderzeichen! Billö statt Billa geht auch nicht
+* Kastner & Öhler durch cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' ausselektiert?
 * Durch Strichpunt getrennte Mehrfeinträge stehen momentan mit eigern ID in der shop_category-Tabelle:  in 2 Kateogorien aufsplitten und in shop_categories-Tabelle erfassen; zusätzliche  Tabelle mit shop_ID und dazugehörigen shop_categoy_IDs? -> Moment ist eigentlcih die erste Normalform (NICHT 2 Attribute in einem Spalteneintrag) nicht erfüllt (!?)
+
+
 
 === Datenbereinigung ===
 
@@ -56,3 +63,10 @@ cat test-shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.aw
 Wie beim Treffen am 25.10. besprochen hab ich jetzt ergänzt:
 * Eigene fortlaufende IDs neben OSM-IDs für shops und points_of_interest
 * Eigene Tabelle shop_categories mit dazugehörigen Fremdschlüsseln in shop-Tabelle
+
+[2018-10-30]
+* Datenbank in sa_shop_finder umbenannt
+* Neues Datenbankschema mit 4 Tabellen: shops, shop_categories, shop_has_categories, points_of_interest
+* TODO: "no" in einzelnen Datenfeldern der shops_in_graz.csv-Datei löschen
+Siehe dazu Datei in SA-Projekttagebuch in freigegebenem Ordner: 
+https://drive.google.com/drive/folders/1Av2iNb72FWzYgVzCOmzxuUwwmg7klJOR?usp=sharing
