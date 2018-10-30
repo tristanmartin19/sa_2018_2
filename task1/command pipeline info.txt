@@ -1,0 +1,37 @@
+﻿=== Verwendetetes Betriebssystem ===
+(X)ubuntu 18.04.01 LTS
+
+=== Starten der Pipeline ===
+
+1. In Linux-Terminal zu root wechseln: sudo su - [Für Zugang zu mariadb]
+
+2. Im Terminal zum Verzeichnis mit den Rohdaten ((1)-(3) herunterzuladen von der Softwarearchitektur-Homepage) und zum Awk-Skript commands.awk (4) wechseln. Das Verzeichnis muss also enthalten:
+
+(1) 2018-austria-latest.osm [riesige OSM-Datei mit allen Daten für Österreich]
+(2) Graz.poly [Grenzen von Graz]
+(3) graz_poi_complete.csv [Sehenswürdigkeiten von Graz]
+(4) commands.awk
+
+3. Dort Start der Command-Pipeline: 
+
+osmfilter 2018-austria-latest.osm --keep= --keep-nodes="shop=" | osmconvert - -B=Graz.poly --all-to-nodes --csv="@id @lon @lat name shop website" | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
+
+Ergebnis: MariaDB-Datenbank "sa_shop_finder" mit Tabellen "shops", "shop_categories", "shop_has_categories" und "points of interest".
+
+===Zwischenergebnisse  zum Testen/Anschauen (mit Ausgabeumleitung in Dateien bzw. Pipe zur Daten)===
+
+osmfilter 2018-austria-latest.osm --keep= --keep-nodes="shop=" > shops_in_austria.osm 
+osmconvert shops_in_austria.osm -B=Graz.poly --all-to-nodes --csv="@id @lon @lat name shop website" > shops_in_graz.csv
+cat shops_in_graz.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
+
+Testen:
+cat test_shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk | mariadb
+cat test_shops.csv | grep -v -w 'vacant' | sed 's/\"/\\"/g' | awk -f commands.awk > output.sql
+
+=== Direkter Export bzw. Import der Datenbank mit mysqldump  ===
+
+Exportieren: mysqldump -p sa_shop_finder > sa_shop_finder-dump.sql
+Importierten: mysqldump -p sa_shop_finder < sa_shop_finder-dump.sql
+
+=== Infos zum Projektfortschritt ===
+https://docs.google.com/document/d/16A9jmSL8qoRgZd3Ae-pmbeBcf_OSvEbR29R20VuarIs/edit?usp=sharing
