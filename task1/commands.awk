@@ -1,5 +1,3 @@
-# Start with awk -f command.awk shops-graz.csv
-
 BEGIN 	{       ### CONSTANTS        
                         FS=OFS="\t" 	# FS := built-in variable Field Separator, OFS := Output Field Separator
                         categories[""] = "NULL"
