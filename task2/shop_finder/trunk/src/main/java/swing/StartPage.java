@@ -19,13 +19,11 @@ public class StartPage {
         btnTestCon.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
 
+                // Database Connection
                 datahandler dh = new datahandler();
                 try {
                     Connection connection = dh.connectToDB();
 
-                    if (connection != null) {
-
-                    }
 
                 } catch (SQLException e) {
                     e.printStackTrace();
