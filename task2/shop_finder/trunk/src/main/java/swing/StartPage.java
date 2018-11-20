@@ -37,7 +37,7 @@ public class StartPage {
             }
         });
     }
-
+/*
     public static void main(String[] args) {
         JFrame frame = new JFrame("StartPage");
         frame.setContentPane(new StartPage().PanelMain);
@@ -54,5 +54,5 @@ public class StartPage {
 
         JScrollPane scrollPane = new JScrollPane(table);
     }
-
+*/
 }
