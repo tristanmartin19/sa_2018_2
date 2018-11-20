@@ -139,7 +139,7 @@ public class Controller implements Initializable{
         } else if (result.get() == again) {
 
         } else {
-            
+
         }
 
     }
