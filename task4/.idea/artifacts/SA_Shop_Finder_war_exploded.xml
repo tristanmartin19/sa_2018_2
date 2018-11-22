@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SA_Shop_Finder:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="SA_Shop_Finder/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SA_Shop_Finder" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:6.0.5" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
