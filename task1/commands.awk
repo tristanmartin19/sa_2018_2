@@ -26,6 +26,8 @@ BEGIN 	{       ### CONSTANTS
                         ## Table 'points_of_interest' ##
                         print "DROP TABLE IF EXISTS points_of_interest;"
                         print "CREATE TABLE points_of_interest (poi_id MEDIUMINT NOT NULL AUTO_INCREMENT, osm_id varchar(11) NOT NULL, longitude double NOT NULL, latitude double NOT NULL, name varchar(255) NOT NULL, PRIMARY KEY (poi_id));"
+			
+			 
                 }
 $4 !=""	{ # Column "name" must not be empty, requirement in task 1.
         
@@ -62,5 +64,10 @@ END 	{
                          # FOREIGN KEY constraint fails in CREATE TABLE shop_has_categories ... statement because table shop_categories doesn't
                         # exist yet when shop_has_categories table is populated
                         print "ALTER TABLE shop_has_categories ADD FOREIGN KEY (shop_id) REFERENCES shops (shop_id);"
-                        print "ALTER TABLE shop_has_categories ADD FOREIGN KEY (category_id) REFERENCES shop_categories (category_id);"                        
+                        print "ALTER TABLE shop_has_categories ADD FOREIGN KEY (category_id) REFERENCES shop_categories (category_id);" 
+			
+
+			### EMPTY TABLE  'favourites' ###
+			 print "DROP TABLE IF EXISTS favourites;"
+			 print "CREATE TABLE favourites (favourite_id MEDIUMINT NOT NULL AUTO_INCREMENT, name varchar(255) NOT NULL UNIQUE, category_id MEDIUMINT, searched_shop_name varchar(255), poi_id MEDIUMINT, distance_to_poi MEDIUMINT, PRIMARY KEY (favourite_id), FOREIGN KEY (category_id) REFERENCES shop_categories (category_id), FOREIGN KEY (poi_id) REFERENCES points_of_interest (poi_id));"
                 }
