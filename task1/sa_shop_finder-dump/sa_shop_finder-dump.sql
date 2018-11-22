@@ -16,6 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `favourites`
+--
+
+DROP TABLE IF EXISTS `favourites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favourites` (
+  `favourite_id` mediumint(9) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `category_id` mediumint(9) DEFAULT NULL,
+  `searched_shop_name` varchar(255) DEFAULT NULL,
+  `poi_id` mediumint(9) DEFAULT NULL,
+  `distance_to_poi` mediumint(9) DEFAULT NULL,
+  PRIMARY KEY (`favourite_id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `category_id` (`category_id`),
+  KEY `poi_id` (`poi_id`),
+  CONSTRAINT `favourites_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `shop_categories` (`category_id`),
+  CONSTRAINT `favourites_ibfk_2` FOREIGN KEY (`poi_id`) REFERENCES `points_of_interest` (`poi_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favourites`
+--
+
+LOCK TABLES `favourites` WRITE;
+/*!40000 ALTER TABLE `favourites` DISABLE KEYS */;
+/*!40000 ALTER TABLE `favourites` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `points_of_interest`
 --
 
@@ -133,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-30 16:51:26
+-- Dump completed on 2018-11-22 16:51:26
