@@ -46,8 +46,8 @@ public class datahandler {
         if (distance != 0){
 
             while (resultSetPOI.next()) {
-                poiLat = resultSetPOI.getDouble("longitude");
-                poiLong = resultSetPOI.getDouble("latitude");
+                poiLat = resultSetPOI.getDouble("latitude");
+                poiLong = resultSetPOI.getDouble("longitude");
             }
 
             SQLCalcDistance = "( 6378.388 * 1000 * pi() / 180  * acos(sin(latitude) * sin(" + poiLat + ") + " +
