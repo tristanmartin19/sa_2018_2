@@ -57,8 +57,8 @@ DROP TABLE IF EXISTS `points_of_interest`;
 CREATE TABLE `points_of_interest` (
   `poi_id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `osm_id` varchar(11) NOT NULL,
-  `longitude` double NOT NULL,
   `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`poi_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
@@ -165,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-22 16:51:26
+-- Dump completed on 2018-11-23  8:07:43

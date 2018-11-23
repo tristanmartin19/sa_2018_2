@@ -25,7 +25,7 @@ BEGIN 	{       ### CONSTANTS
                         
                         ## Table 'points_of_interest' ##
                         print "DROP TABLE IF EXISTS points_of_interest;"
-                        print "CREATE TABLE points_of_interest (poi_id MEDIUMINT NOT NULL AUTO_INCREMENT, osm_id varchar(11) NOT NULL, longitude double NOT NULL, latitude double NOT NULL, name varchar(255) NOT NULL, PRIMARY KEY (poi_id));"
+                        print "CREATE TABLE points_of_interest (poi_id MEDIUMINT NOT NULL AUTO_INCREMENT, osm_id varchar(11) NOT NULL, latitude double NOT NULL, longitude double NOT NULL, name varchar(255) NOT NULL, PRIMARY KEY (poi_id));"
 			
 			 
                 }
@@ -52,7 +52,7 @@ $4 !=""	{ # Column "name" must not be empty, requirement in task 1.
                 }
 END 	{
                         ## Table points_of_interest ##
-                        print "LOAD DATA LOCAL INFILE 'graz_poi_complete.csv' INTO TABLE points_of_interest FIELDS TERMINATED BY '|' ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' IGNORE 1 ROWS (osm_id, longitude, latitude, name) SET poi_id = NULL;"
+                        print "LOAD DATA LOCAL INFILE 'graz_poi_complete.csv' INTO TABLE points_of_interest FIELDS TERMINATED BY '|' ENCLOSED BY '' LINES TERMINATED BY '\\r\\n' IGNORE 1 ROWS (osm_id, latitude, longitude, name) SET poi_id = NULL;"
                         # Table shop_categories
                         delete categories[""]
                         for (element in categories)  print "INSERT INTO shop_categories VALUES ("categories[element]",\"" element "\");"                        
