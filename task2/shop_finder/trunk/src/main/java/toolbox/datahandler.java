@@ -139,6 +139,7 @@ public class datahandler {
 
     public void AddShop(Connection connection, String name, long osm_id,  double longitude, double latitude,
                            String homepage ) throws SQLException{
+        // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
         statement.executeQuery("insert into shops (osm_id, longitude, latitude, name, homepage) " +
                 "values " + osm_id + " , " + longitude + ", " + latitude + " , ' " + name +" ' , ' " + homepage + " ' ");
@@ -146,13 +147,20 @@ public class datahandler {
 
     }
 
-    public void AddFavorite(Connection connection) throws SQLException{
-        // Todo: Tabelle anlegen und Query Anlegen
+    public void AddFavorite(Connection connection, String favName, int searchedCatID, String shopName,
+                            int searchedPOIId, int MaxDistance) throws SQLException{
+        // Todo: Test when UI is ready
+        Statement statement = connection.createStatement();
+        statement.executeQuery("insert into favourites (name, category_id, searched_shop_name, poi_id," +
+                " distance_to_poi) " +
+                "values '" + favName + "' , " + searchedCatID + ", '" + shopName + "' ,  " + searchedPOIId +"  ,  " +
+                MaxDistance + "  ");
+
     }
 
     public void EditShop(Connection connection, int shopID ,String name, long osm_id,  double longitude,
                            double latitude, String homepage ) throws SQLException{
-
+        // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
         statement.executeQuery("UPDATE shops " +
                 "SET osm_id = " + osm_id + " , longitude = " + longitude + ", latitude = " + latitude + " , " +
@@ -162,15 +170,15 @@ public class datahandler {
 
     }
 
-    public void EditFavorite(Connection connection, int favoriteID ,String favoriteName, int categoryID ,
-                               int distance  ) throws SQLException{
-
-        // Todo: Fav Shops anlegen und query entsprechend tabelle anpassen!
+    public void EditFavorite(Connection connection, int favoriteID, String favName, int searchedCatID, String shopName,
+                             int searchedPOIId, int MaxDistance  ) throws SQLException{
+        // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
-        /*statement.executeQuery("UPDATE shops " +
-                "SET osm_id = " + osm_id + " , longitude = " + longitude + ", latitude = " + latitude + " , " +
-                "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
-                "WHERE shop_id = " + shopID );*/
+        statement.executeQuery("UPDATE favourites " +
+                "SET name = '" + favName + "' , category_id = " + searchedCatID + ", " +
+                "searched_shop_name = '" + shopName + "' , " + "poi_id = " + searchedPOIId + " " +
+                " , distance_to_poi = " + MaxDistance + " " +
+                "WHERE favourite_id = " + favoriteID );
 
 
     }
@@ -216,12 +224,10 @@ public class datahandler {
 
     public void DeleteFavorite(Connection connection, int favoriteID ) throws SQLException{
 
-        // Todo: Fav Shops anlegen und query entsprechend tabelle anpassen!
+        // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
-        /*statement.executeQuery("UPDATE shops " +
-                "SET osm_id = " + osm_id + " , longitude = " + longitude + ", latitude = " + latitude + " , " +
-                "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
-                "WHERE shop_id = " + shopID );*/
+        statement.executeUpdate("delete from favourites " +
+                "where favourite_id = " + favoriteID  );
 
     }
 
