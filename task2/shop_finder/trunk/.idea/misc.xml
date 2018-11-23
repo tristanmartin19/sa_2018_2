@@ -10,4 +10,23 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_10" default="true" project-jdk-name="10" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://svn.tugraz.at/svn/sa_2018_18/task2/shop_finder/branches" />
+                  <option value="https://svn.tugraz.at/svn/sa_2018_18/task2/shop_finder/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://svn.tugraz.at/svn/sa_2018_18/task2/shop_finder/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>

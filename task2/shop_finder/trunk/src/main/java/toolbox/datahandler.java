@@ -5,6 +5,8 @@ import java.sql.*;
 public class datahandler {
 
     public enum orderBy { shop_id, name, distance };
+    private calculator Calc = new calculator();
+
 
     public Connection connectToDB () throws SQLException, ClassNotFoundException {
         String Username = "root";
@@ -23,19 +25,71 @@ public class datahandler {
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * from shops order by name  ");
+
+        statement.close();
+
         return resultSet;
     }
 
-    public ResultSet getShops(Connection connection, String shopName, int categoryID, int poiID , int distance , orderBy orderBy) throws SQLException{
+    public ResultSet getShops(Connection connection, String shopName, int categoryID, int poiID , int distance ,
+                              orderBy orderBy) throws SQLException{
 
-        Statement statement = connection.createStatement();
+        ResultSet resultSetPOI = getKooPOI(connection, poiID);
         ResultSet resultSet = null;
+        Statement statement = connection.createStatement();
 
-        if (shopName != "" && categoryID != 0 && poiID != 0){
+        double poiLong = 0;
+        double poiLat = 0;
+
+        String SQLCalcDistance = "";
+
+        if (distance != 0){
+
+            while (resultSetPOI.next()) {
+                poiLat = resultSetPOI.getDouble("longitude");
+                poiLong = resultSetPOI.getDouble("latitude");
+            }
+
+            SQLCalcDistance = "( 6378.388 * 1000 * pi() / 180  * acos(sin(latitude) * sin(" + poiLat + ") + " +
+                    "cos(latitude) * cos( " + poiLat + " ) * cos( " + poiLong + " - longitude)))";
+
+        }
+
+        if ( categoryID != 0 && poiID != 0){
             // Get shops with name and cat arroind a POI
             // Calculate the Range arround the POI
 
             // Get the Distnce for each shop and compare it with the max dist to the POI in the Query
+            resultSet = statement.executeQuery("SELECT shops.shop_id, shops.name, homepage, longitude, latitude, " +
+                    "" + SQLCalcDistance + " as distance  from shops " +
+                    "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
+                    "INNER join shop_categories sc on category.category_id = sc.category_id " +
+                    "where shops.name like '%" + shopName + "%' and sc.category_id =" + categoryID + " " +
+                    "and "  + SQLCalcDistance + " <= "  + distance +
+                    " order by " + orderBy.toString() );
+
+        }
+        else if (shopName != "" &&  poiID != 0  ){
+            resultSet = statement.executeQuery("SELECT shops.shop_id, shops.name, homepage, longitude, latitude ," +
+                    "" + SQLCalcDistance + " as distance from shops " +
+                    "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
+                    "INNER join shop_categories sc on category.category_id = sc.category_id " +
+                    "where shops.name like '%" + shopName + "%' " +
+                    "and "  + SQLCalcDistance + " <= "  + distance +
+                    " order by " + orderBy.toString() );
+        }
+
+        else if ( poiID != 0){
+            // Get shops with name and cat arroind a POI
+            // Calculate the Range arround the POI
+            // Get the Distnce for each shop and compare it with the max dist to the POI in the Query
+
+            orderBy = datahandler.orderBy.distance;
+            resultSet = statement.executeQuery("SELECT shops.shop_id, shops.name, homepage, longitude, latitude, " + SQLCalcDistance + " as distance from shops " +
+                    "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
+                    "INNER join shop_categories sc on category.category_id = sc.category_id " +
+                    "where " + SQLCalcDistance + " <= "  + distance +
+                    " order by " + orderBy.toString() );
         }
         else if (shopName != "" && categoryID != 0 ){
             resultSet = statement.executeQuery("SELECT shops.shop_id, shops.name, homepage, longitude, latitude  from shops " +
@@ -43,18 +97,7 @@ public class datahandler {
                     "INNER join shop_categories sc on category.category_id = sc.category_id " +
                     "where shops.name like '%" + shopName + "%' and sc.category_id =" + categoryID + " " +
                     "order by " + orderBy.toString() );
-            return resultSet;
         }
-
-        else if (shopName == "" && poiID != 0 ){
-            resultSet = statement.executeQuery("SELECT shops.shop_id, shops.name, homepage, longitude, latitude  from shops " +
-                    "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
-                    "INNER join shop_categories sc on category.category_id = sc.category_id " +
-                    "where shops.name like '%" + shopName + "%'" +
-                    "order by " + orderBy.toString() );
-            return resultSet;
-        }
-
         else {
             resultSet = statement.executeQuery("SELECT shops.shop_id, shops.name, homepage, longitude, latitude  from shops " +
                     "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
@@ -62,21 +105,34 @@ public class datahandler {
                     "where shops.name like '%" + shopName + "%' or sc.category_id =" + categoryID + " " +
                     "order by " + orderBy.toString());
         }
+
         return resultSet;
     }
-
 
     public ResultSet getCategories(Connection connection) throws SQLException{
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * from shop_categories ");
+
         return resultSet;
+
+
     }
 
     public ResultSet getPOI(Connection connection) throws SQLException{
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * from points_of_interest ");
+
+        return resultSet;
+    }
+
+    public ResultSet getKooPOI(Connection connection, int poiID) throws SQLException{
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT longitude, latitude from points_of_interest " +
+                "where poi_id = "+ poiID);
+
         return resultSet;
     }
 
@@ -86,6 +142,8 @@ public class datahandler {
         Statement statement = connection.createStatement();
         statement.executeQuery("insert into shops (osm_id, longitude, latitude, name, homepage) " +
                 "values " + osm_id + " , " + longitude + ", " + latitude + " , ' " + name +" ' , ' " + homepage + " ' ");
+
+
     }
 
     public void AddFavorite(Connection connection) throws SQLException{
@@ -100,6 +158,8 @@ public class datahandler {
                 "SET osm_id = " + osm_id + " , longitude = " + longitude + ", latitude = " + latitude + " , " +
                 "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
                 "WHERE shop_id = " + shopID );
+
+
     }
 
     public void EditFavorite(Connection connection, int favoriteID ,String favoriteName, int categoryID ,
@@ -111,6 +171,8 @@ public class datahandler {
                 "SET osm_id = " + osm_id + " , longitude = " + longitude + ", latitude = " + latitude + " , " +
                 "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
                 "WHERE shop_id = " + shopID );*/
+
+
     }
 
     public void DeleteShop(Connection connection, int shopID ) throws SQLException{
@@ -149,6 +211,7 @@ public class datahandler {
         statement.execute("delete from shops " +
                 "where shop_id = " + shopID );
 
+
     }
 
     public void DeleteFavorite(Connection connection, int favoriteID ) throws SQLException{
@@ -159,6 +222,7 @@ public class datahandler {
                 "SET osm_id = " + osm_id + " , longitude = " + longitude + ", latitude = " + latitude + " , " +
                 "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
                 "WHERE shop_id = " + shopID );*/
+
     }
 
 
