@@ -4,6 +4,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.fxml.Initializable;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -11,13 +15,14 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import toolbox.datahandler;
 import toolbox.shop;
 import toolbox.search;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
 public class Controller implements Initializable{
-
+    private search actual_search = new search("","",0,"");
     private ObservableList<shop> items_results;
     private ObservableList<search> items_favorites;
     @FXML
@@ -30,7 +35,7 @@ public class Controller implements Initializable{
     private TextField search_name;
 
     @FXML
-    private TextField search_category;
+    private ComboBox search_category;
 
     @FXML
     private TextField search_distance;
@@ -73,7 +78,29 @@ public class Controller implements Initializable{
 
     @FXML
     private void searchAction(ActionEvent e){
-        System.out.print("Hello");
+        items_results.clear();
+
+        String category_sel = search_category.getSelectionModel().getSelectedItem().toString();
+        String poi_sel = search_poi.getSelectionModel().getSelectedItem().toString();
+
+        if ((category_sel.equals("<Select>") ) || (category_sel.equals("<Show All>")))
+            category_sel = "";
+
+        if ((poi_sel.equals("<Select>")) || (poi_sel.equals("<Show All>")))
+            poi_sel = "";
+
+        int distance_int;
+
+        try {
+            distance_int = Integer.parseInt(search_distance.getText());
+        }
+        catch (NumberFormatException ex1) {distance_int = 0;}
+
+
+
+
+        results.setItems(FXCollections.observableArrayList(actual_search.getShops(search_name.getText(),
+                category_sel, poi_sel,distance_int)));
     }
 
     @FXML
@@ -85,7 +112,16 @@ public class Controller implements Initializable{
 
     @FXML
     private void showAllAction(ActionEvent e){
-        System.out.print("Hello");
+        items_results.clear();
+
+        //clear sheet
+        search_name.setText("");
+        search_category.setValue("<Show all>");
+        search_poi.setValue("<Show all>");
+        search_distance.setText("");
+
+
+        results.setItems(FXCollections.observableArrayList(actual_search.getAllShops()));
     }
 
     @FXML
@@ -163,13 +199,34 @@ public class Controller implements Initializable{
         TextField name = new TextField();
         name.setText(selected.getName());
         TextField longitude = new TextField();
-        //longitude.setText(selected.getLongitude().toString());
+        longitude.setText(Double.toString(selected.getLongitude()));
         TextField latitude = new TextField();
-        //latitude.setText(selected.getLatitude().toString());
+        latitude.setText(Double.toString(selected.getLatitude()));
         TextField homepage = new TextField();
         homepage.setText(selected.getHomepage());
-        TextField category = new TextField();
-        category.setText(selected.getCategory());
+        ComboBox<String> category = new ComboBox<>();
+        category.setItems(FXCollections.observableArrayList());
+
+
+        try {
+            datahandler data_handler_search = new datahandler();
+            Connection connection = data_handler_search.connectToDB();
+
+            ResultSet categories = data_handler_search.getCategories(connection);
+            ObservableList<String> categories_list = FXCollections.observableArrayList();
+
+            while (categories.next())
+            {
+                categories_list.add(categories.getString("name_category"));
+            }
+
+            category.setItems(categories_list);
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2) {}
+
+        category.setValue(selected.getCategory());
+
 
 
         grid.add(new Label("Name"),0,0);
@@ -187,8 +244,24 @@ public class Controller implements Initializable{
 
         Optional<ButtonType> result = popup.showAndWait();
         if(result.get()== edit) {
-            System.out.println(name.getText());
+
+            String longitude_text = longitude.getText();
+            String latitude_text = latitude.getText();
+
+            try {
+                selected.editShop(name.getText(), Double.parseDouble(longitude_text), Double.parseDouble(latitude_text),homepage.getText());
+            }
+            catch (NumberFormatException ex1) {}
+
+
+            results.refresh();
+
+
         } else if(result.get() == delete){
+            items_results.remove(selected);
+            selected.deleteShop();
+            results.refresh();
+
 
         } else{
 
@@ -198,10 +271,48 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         items_results = FXCollections.observableArrayList();
-        shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",456);
+        //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",456);
 
-        items_results.add(buffer);
-        results.setItems(items_results);
+        //prepare ComboBoxes:
+
+        try {
+
+            datahandler data_h = new datahandler();
+            Connection connection = data_h.connectToDB();
+
+            ResultSet categories = data_h.getCategories(connection);
+            ObservableList<String> categories_list = FXCollections.observableArrayList();
+            categories_list.add("<Show all>");
+
+            while (categories.next())
+            {
+                categories_list.add(categories.getString("name_categorY"));
+            }
+
+            search_category.setItems(categories_list);
+            search_category.setValue("<Select>");
+
+            ResultSet pois = data_h.getPOI(connection);
+            ObservableList<String> poi_list = FXCollections.observableArrayList();
+            poi_list.add("<Show all>");
+
+            while (pois.next()) {
+                poi_list.add(pois.getString("name"));
+            }
+
+            search_poi.setItems(poi_list);
+            search_poi.setValue("<Select>");
+
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2) {}
+
+
+
+
+
+        //items_results.add(buffer);
+        //results.setItems(items_results);
 
         items_favorites = FXCollections.observableArrayList();
         search buffer2 = new search("Billa", "Ladem",100, "Uni");

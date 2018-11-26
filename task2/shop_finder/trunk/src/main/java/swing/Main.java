@@ -24,7 +24,7 @@ public class Main extends Application {
         popup.setHeaderText("To edit or delete Shops in the result list of your search or in the favorite list, just click at it");
 
         popup.showAndWait();
-        shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",123);
+        //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",123);
      //   primaryStage.
     }
 
