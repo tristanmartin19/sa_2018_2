@@ -23,11 +23,24 @@ public class shop {
         this.data_handler = data_handler_;
     }
 
+    private void setShopData(String new_name, double new_longitude, double new_latitude, String new_homepage) {
+        name = new_name;
+        longitude = new_longitude;
+        latitude = new_latitude;
+        homepage = new_homepage;
+    }
+
+    public void addShop() {
+        try {
+            Connection connection = data_handler.connectToDB();
+            data_handler.AddShop(connection, name, 0, longitude, latitude, homepage);
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2) {}
+    }
+
     public void editShop(String new_name, double new_longitude, double new_latitude, String new_homepage) {
-        this.name = new_name;
-        this.longitude = new_longitude;
-        this.latitude = new_latitude;
-        this.homepage = new_homepage;
+        setShopData(new_name, new_longitude, new_latitude, new_homepage);
 
         try {
             Connection connection = data_handler.connectToDB();

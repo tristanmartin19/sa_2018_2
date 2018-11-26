@@ -7,11 +7,119 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class search {
+    int id;
     String name;
     String category;
     int distance;
     String poi;
     datahandler data_handler;
+
+    public void setSearch(String new_name, String new_category, int new_distance, String new_poi) {
+        this.name = new_name;
+        this.category = new_category;
+        this.distance = new_distance;
+        this.poi = new_poi;
+    }
+
+    public void editSearch(String new_name, String new_category, int new_distance, String new_poi) {
+        setSearch(new_name, new_category, new_distance, new_poi);
+
+        try {
+            Connection connection = data_handler.connectToDB();
+
+            ResultSet category_r = data_handler.getCategory(connection, category);
+            category_r.first();
+            int int_category = category_r.getInt("name_category");
+
+            ResultSet result_poi;
+            result_poi = data_handler.getPointOfInterest(connection, poi);
+            int integer_poi = result_poi.getInt("poi_id");
+
+
+
+            data_handler.EditFavorite(connection, id, "", int_category, name, integer_poi, distance);
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2) {}
+
+    }
+
+    public void deleteSearch() {
+        try {
+            Connection connection = data_handler.connectToDB();
+            data_handler.DeleteFavorite(connection, id );
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2){}
+    }
+
+    public List<search> getAllSearches() {
+
+        List<search> searches = new ArrayList<search>();
+
+        try {
+            Connection connection = data_handler.connectToDB();
+            ResultSet result_searches;
+            result_searches = data_handler.getAllSearches(connection);
+
+
+
+            while (result_searches.next())
+            {
+                int integer_category = result_searches.getInt("category_id");
+                int integer_poi = result_searches.getInt("poi_id");
+
+                ResultSet category_r = data_handler.getCategory(connection, integer_category);
+                category_r.first();
+                String string_category = category_r.getString("name_category");
+
+                ResultSet pointofinterrest_r = data_handler.getPointOfInterest(connection, integer_poi);
+                pointofinterrest_r.first();
+                String string_poi = pointofinterrest_r.getString("name");
+
+
+                search new_search = new search(result_searches.getInt("favourite_id"),
+                        result_searches.getString("searched_shop_name"),
+                       string_category ,
+                        result_searches.getInt("distance_to_poi"),
+                        string_poi
+                        );
+                searches.add(new_search);
+
+            }
+
+
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2) {}
+
+        return searches;
+    }
+
+    public void addSearch() {
+        try {
+            Connection connection = data_handler.connectToDB();
+
+            ResultSet result_category;
+            result_category = data_handler.getCategory(connection, category);
+            result_category.first();
+            int integer_category = result_category.getInt("category_id");
+
+            ResultSet result_poi;
+            result_poi = data_handler.getPointOfInterest(connection, poi);
+            result_poi.first();
+            int integer_poi = result_poi.getInt("poi_id");
+
+
+
+            int new_id = data_handler.AddFavorite(connection, "", integer_category, name, integer_poi, distance);
+            id = new_id;
+
+            connection.close();
+        }
+        catch (SQLException ex1) {}
+        catch (ClassNotFoundException ex2) {}
+    }
 
 
     public List<shop> getShops(String name, String category,
@@ -99,7 +207,8 @@ public class search {
         return null;
     }
 
-    public search(String name, String category, int distance, String poi) {
+    public search(int id, String name, String category, int distance, String poi) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.distance = distance;
@@ -140,6 +249,7 @@ public class search {
     }
 
     public String toString() {
+
         String buffer = name + ", " + category + ", " + distance + ", " + poi;
         return buffer;
     }
