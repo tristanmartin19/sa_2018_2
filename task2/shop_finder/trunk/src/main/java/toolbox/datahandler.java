@@ -44,8 +44,6 @@ public class datahandler {
 
         String SQLCalcDistance = "";
 
-        String sql_category_part = "";
-
         if (distance != 0){
 
             while (resultSetPOI.next()) {
@@ -75,7 +73,7 @@ public class datahandler {
                     " order by " + orderBy.toString() );
 
         }
-        else if (shopName != "" &&  poiID != 0  ){
+        else if (!shopName.equals("") &&  poiID != 0  ){
             resultSet = statement.executeQuery("SELECT *," +
                     "" + SQLCalcDistance + " as distance from shops " +
                     "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
@@ -97,7 +95,7 @@ public class datahandler {
                     "where " + SQLCalcDistance + " <= "  + distance +
                     " order by " + orderBy.toString() );
         }
-        else if (shopName != "" && categoryID != 0 ){
+        else if (!shopName.equals("") && categoryID != 0 ){
             resultSet = statement.executeQuery("SELECT *  from shops " +
                     "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
                     "INNER join shop_categories sc on category.category_id = sc.category_id " +
@@ -133,10 +131,26 @@ public class datahandler {
 
     }
 
+    public ResultSet getCategory(Connection connection, int id) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * from shop_categories WHERE category_id = '"+id+"'");
+
+        return resultSet;
+    }
+
     public ResultSet getPointOfInterest(Connection connection, String name) throws SQLException{
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * from points_of_interest WHERE name ='"+name+"'");
+
+        return resultSet;
+
+    }
+
+    public ResultSet getPointOfInterest(Connection connection, int id) throws SQLException{
+
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * from points_of_interest WHERE poi_id ='"+id+"'");
 
         return resultSet;
 
@@ -159,25 +173,39 @@ public class datahandler {
         return resultSet;
     }
 
+    public ResultSet getAllSearches(Connection connection) throws  SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * from favourites ");
+
+        return resultSet;
+    }
+
 
     public void AddShop(Connection connection, String name, long osm_id,  double longitude, double latitude,
                            String homepage ) throws SQLException{
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
-        statement.executeQuery("insert into shops (osm_id, longitude, latitude, name, homepage) " +
-                "values " + osm_id + " , " + longitude + ", " + latitude + " , ' " + name +" ' , ' " + homepage + " ' ");
+        statement.execute("insert into shops (osm_id, longitude, latitude, name, homepage) " +
+                "values (" + osm_id + " , " + longitude + ", " + latitude + " , ' " + name +" ' , ' " + homepage + " ')");
 
 
     }
 
-    public void AddFavorite(Connection connection, String favName, int searchedCatID, String shopName,
+    public int AddFavorite(Connection connection, String favName, int searchedCatID, String shopName,
                             int searchedPOIId, int MaxDistance) throws SQLException{
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
-        statement.executeQuery("insert into favourites (name, category_id, searched_shop_name, poi_id," +
+        statement.execute("insert into favourites (name, category_id, searched_shop_name, poi_id, distance_to_poi) "+
+                " values ('test',"+ searchedCatID +",'"+ shopName +"',"+ searchedPOIId +","+ MaxDistance +")");
+        /*
+        statement.execute("insert into favourites (name, category_id, searched_shop_name, poi_id," +
                 " distance_to_poi) " +
-                "values '" + favName + "' , " + searchedCatID + ", '" + shopName + "' ,  " + searchedPOIId +"  ,  " +
-                MaxDistance + "  ");
+                "values ('" + favName + "' , " + searchedCatID + ", '" + shopName + "' , " + searchedPOIId +" , " +
+                MaxDistance + ")  ");*/
+
+        ResultSet new_id_result =  statement.executeQuery("SELECT LAST_INSERT_ID()");
+        new_id_result.first();
+        return new_id_result.getInt(1);
 
     }
 
@@ -203,6 +231,11 @@ public class datahandler {
                 " , distance_to_poi = " + MaxDistance + " " +
                 "WHERE favourite_id = " + favoriteID );
 
+        /*statement.executeQuery("UPDATE favourites " +
+                "SET name = '" + favName + "' , category_id = " + searchedCatID + ", " +
+                "searched_shop_name = '" + shopName + "' , " + "poi_id = " + searchedPOIId + " " +
+                " , distance_to_poi = " + MaxDistance + " " +
+                "WHERE favourite_id = " + favoriteID );*/
 
     }
 
@@ -257,7 +290,7 @@ public class datahandler {
 
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
-        statement.executeUpdate("delete from favourites " +
+        statement.execute("delete from favourites " +
                 "where favourite_id = " + favoriteID  );
 
     }
