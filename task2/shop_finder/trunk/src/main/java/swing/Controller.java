@@ -346,7 +346,7 @@ public class Controller implements Initializable{
         items_results = FXCollections.observableArrayList();
         //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",456);
 
-        //prepare ComboBoxes:
+        //prepare ComboBoxes
 
         try {
 
@@ -355,14 +355,20 @@ public class Controller implements Initializable{
 
             ResultSet categories = data_h.getCategories(connection);
             ObservableList<String> categories_list = FXCollections.observableArrayList();
-            categories_list.add("<Show All>");
+
+
 
             while (categories.next())
             {
                 categories_list.add(categories.getString("name_categorY"));
             }
 
-            search_category.setItems(categories_list);
+            ObservableList<String> categories_list_search= FXCollections.observableArrayList();
+            categories_list_search.setAll(categories_list);
+            categories_list_search.add(0,"<Show All>" );
+
+            search_category.setItems(categories_list_search);
+            add_category.setItems(categories_list);
             search_category.setValue("<Select>");
 
             ResultSet pois = data_h.getPOI(connection);

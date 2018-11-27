@@ -197,11 +197,6 @@ public class datahandler {
         Statement statement = connection.createStatement();
         statement.execute("insert into favourites (name, category_id, searched_shop_name, poi_id, distance_to_poi) "+
                 " values ('test',"+ searchedCatID +",'"+ shopName +"',"+ searchedPOIId +","+ MaxDistance +")");
-        /*
-        statement.execute("insert into favourites (name, category_id, searched_shop_name, poi_id," +
-                " distance_to_poi) " +
-                "values ('" + favName + "' , " + searchedCatID + ", '" + shopName + "' , " + searchedPOIId +" , " +
-                MaxDistance + ")  ");*/
 
         ResultSet new_id_result =  statement.executeQuery("SELECT LAST_INSERT_ID()");
         new_id_result.first();
