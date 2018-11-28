@@ -131,6 +131,20 @@ public class datahandler {
 
     }
 
+    public int getCategoryID(Connection connection, String name) throws SQLException{
+
+        int catID = 0;
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT category_id from shop_categories WHERE name_category = '"+name+"'");
+
+        while (resultSet.next()){
+            catID = resultSet.getInt("category_id");
+        }
+        return catID;
+
+    }
+
+
     public ResultSet getCategory(Connection connection, int id) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * from shop_categories WHERE category_id = '"+id+"'");
@@ -182,12 +196,22 @@ public class datahandler {
 
 
     public void AddShop(Connection connection, String name, long osm_id,  double longitude, double latitude,
-                           String homepage ) throws SQLException{
+                           String homepage , int categoryID ) throws SQLException{
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
         statement.execute("insert into shops (osm_id, longitude, latitude, name, homepage) " +
-                "values (" + osm_id + " , " + longitude + ", " + latitude + " , ' " + name +" ' , ' " + homepage + " ')");
+                "values (" + osm_id + " , " + longitude + ", " + latitude + " , ' " + name +" ' , ' " + homepage + " ')"
+        , Statement.RETURN_GENERATED_KEYS);
 
+        int shopID = 0;
+        ResultSet generatedKeys = statement.getGeneratedKeys();
+        shopID = statement.RETURN_GENERATED_KEYS;
+        if (generatedKeys.next()) {
+            shopID = generatedKeys.getInt(1);
+        }
+
+        statement.execute("insert into shop_has_categories (shop_id, category_id )" +
+                "values ( " + shopID + ", " + categoryID + ")");
 
     }
 
@@ -205,7 +229,7 @@ public class datahandler {
     }
 
     public void EditShop(Connection connection, int shopID ,String name, long osm_id,  double longitude,
-                           double latitude, String homepage ) throws SQLException{
+                           double latitude, String homepage , int categoryID) throws SQLException{
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
 
@@ -213,6 +237,10 @@ public class datahandler {
                 "SET longitude = " + longitude + ", latitude = " + latitude + " , " +
                 "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
                 "WHERE shop_id = " + shopID );
+
+        statement.execute("update shop_has_categories " +
+                "set category_id = " + categoryID + " " +
+                "where  shop_id = " + shopID);
 
     }
 
