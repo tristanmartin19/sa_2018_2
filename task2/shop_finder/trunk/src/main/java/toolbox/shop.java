@@ -33,7 +33,8 @@ public class shop {
     public void addShop() {
         try {
             Connection connection = data_handler.connectToDB();
-            data_handler.AddShop(connection, name, 0, longitude, latitude, homepage);
+            data_handler.AddShop(connection, name, 0, longitude, latitude, homepage,
+                    data_handler.getCategoryID(connection, category));
         }
         catch (SQLException ex1) {}
         catch (ClassNotFoundException ex2) {}
@@ -44,7 +45,8 @@ public class shop {
 
         try {
             Connection connection = data_handler.connectToDB();
-            data_handler.EditShop(connection, id,name, 0, longitude, latitude, homepage);
+            data_handler.EditShop(connection, id,name, 0, longitude, latitude, homepage,
+                    data_handler.getCategoryID(connection, category));
         }
         catch (SQLException ex1) {}
         catch (ClassNotFoundException ex2) {}
