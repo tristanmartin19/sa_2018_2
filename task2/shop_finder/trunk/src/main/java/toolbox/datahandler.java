@@ -10,7 +10,7 @@ public class datahandler {
 
     public Connection connectToDB () throws SQLException, ClassNotFoundException {
         String Username = "root";
-        String Pwd = "root";
+        String Pwd = "password";
         String URL = "jdbc:mysql://localhost:3306/sa_shop_finder";
         String BugfixURL = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&" +
                 "useLegacyDatetimeCode=false&serverTimezone=UTC";

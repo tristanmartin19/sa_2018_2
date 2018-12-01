@@ -5,15 +5,14 @@ import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.fxml.Initializable;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import toolbox.datahandler;
+import toolbox.helper;
 import toolbox.shop;
 import toolbox.search;
 import javafx.event.ActionEvent;
@@ -23,6 +22,8 @@ public class Controller implements Initializable{
     private search actual_search = new search(0, "","",0,"");
     private ObservableList<shop> items_results;
     private ObservableList<search> items_searches;
+    private ObservableList<String> items_categories;
+    private ObservableList<String> items_pois;
     @FXML
     private ListView<shop> results;
 
@@ -186,41 +187,12 @@ public class Controller implements Initializable{
             ComboBox<String> poi = new ComboBox<>();
 
 
-            try {
-                datahandler data_handler_search = new datahandler();
-                Connection connection = data_handler_search.connectToDB();
 
-                ResultSet categories = data_handler_search.getCategories(connection);
-                ObservableList<String> categories_list = FXCollections.observableArrayList();
+            category.setItems(items_categories);
+            category.setValue(selected.getCategory());
 
-                while (categories.next())
-                {
-                    categories_list.add(categories.getString("category_name"));
-                }
-
-                category.setItems(categories_list);
-                category.setValue(selected.getCategory());
-            }
-            catch (SQLException ex1) {}
-            catch (ClassNotFoundException ex2) {}
-
-
-            try {
-                datahandler data_handler_search = new datahandler();
-                Connection connection = data_handler_search.connectToDB();
-
-                ResultSet points_of_interrest = data_handler_search.getPOI(connection);
-                ObservableList<String> categories_list = FXCollections.observableArrayList();
-
-                while (points_of_interrest.next()) {
-                    categories_list.add(points_of_interrest.getString("name"));
-                }
-
-                poi.setItems(categories_list);
-                poi.setValue(selected.getPoi());
-            }
-            catch (SQLException ex1) {}
-            catch (ClassNotFoundException ex2) {}
+            poi.setItems(items_pois);
+            poi.setValue(selected.getPoi());
 
             distance.setText(Integer.toString(selected.getDistance()));
 
@@ -242,7 +214,7 @@ public class Controller implements Initializable{
             Optional<ButtonType> result = popup.showAndWait();
             if(result.get()== edit) {
                 try {
-                    selected.editSearch(name.getText(), "", Integer.parseInt(distance.getText()),
+                    selected.editSearch(name.getText(), category.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(distance.getText()),
                             poi.getSelectionModel().getSelectedItem().toString() );
                 }
                 catch (NumberFormatException ex1) {}
@@ -302,23 +274,8 @@ public class Controller implements Initializable{
             category.setItems(FXCollections.observableArrayList());
 
 
-            try {
-                datahandler data_handler_search = new datahandler();
-                Connection connection = data_handler_search.connectToDB();
 
-                ResultSet categories = data_handler_search.getCategories(connection);
-                ObservableList<String> categories_list = FXCollections.observableArrayList();
-
-                while (categories.next())
-                {
-                    categories_list.add(categories.getString("category_name"));
-                }
-
-                category.setItems(categories_list);
-            }
-            catch (SQLException ex1) {}
-            catch (ClassNotFoundException ex2) {}
-
+            category.setItems(items_categories);
             category.setValue(selected.getCategory());
 
 
@@ -367,58 +324,26 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         items_results = FXCollections.observableArrayList();
-        //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",456);
-
-        //prepare ComboBoxes
-
-        try {
-
-            datahandler data_h = new datahandler();
-            Connection connection = data_h.connectToDB();
-
-            ResultSet categories = data_h.getCategories(connection);
-            ObservableList<String> categories_list = FXCollections.observableArrayList();
 
 
+        //prepare ComboBoxes & global vars
+        helper init_helper = new helper();
 
-            while (categories.next())
-            {
-                categories_list.add(categories.getString("category_name"));
-            }
+        items_categories = init_helper.getAllCategories();
 
-            ObservableList<String> categories_list_search= FXCollections.observableArrayList();
-            categories_list_search.setAll(categories_list);
-            categories_list_search.add(0,"<Show All>" );
-
-            search_category.setItems(categories_list_search);
-            add_category.setItems(categories_list);
-            search_category.setValue("<Select>");
-
-            ResultSet pois = data_h.getPOI(connection);
-            ObservableList<String> poi_list = FXCollections.observableArrayList();
-            poi_list.add("<Show All>");
-
-            while (pois.next()) {
-                poi_list.add(pois.getString("name"));
-            }
-
-            search_poi.setItems(poi_list);
-            search_poi.setValue("<Select>");
-
-        }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
+        add_category.setItems(items_categories);
+        search_category.setItems(init_helper.toSearchList(items_categories));
+        search_category.setValue("<Select>");
 
 
+        items_pois = init_helper.getAllPois();
+
+        search_poi.setItems(init_helper.toSearchList(items_pois));
+        search_poi.setValue("<Select>");
 
 
-
-        //items_results.add(buffer);
-        //results.setItems(items_results);
 
         items_searches = FXCollections.observableArrayList(actual_search.getAllSearches());
-       // search buffer2 = new search("Billa", "Ladem",100, "Uni");
-       // items_searches.add(buffer2);
         favorites.setItems(items_searches);
     }
 

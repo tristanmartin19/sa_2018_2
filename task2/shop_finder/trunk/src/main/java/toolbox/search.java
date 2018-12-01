@@ -250,7 +250,7 @@ public class search {
 
     public String toString() {
 
-        String buffer = name + ", " + category + ", " + distance + ", " + poi;
+        String buffer = name + ", " + category + ", Located " + distance + "m near to location '" + poi+"'";
         return buffer;
     }
 }
