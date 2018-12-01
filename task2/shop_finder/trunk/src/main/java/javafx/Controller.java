@@ -1,4 +1,4 @@
-package swing;
+package javafx;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
