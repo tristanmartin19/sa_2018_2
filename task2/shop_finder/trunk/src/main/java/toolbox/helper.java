@@ -56,7 +56,10 @@ public class helper {
             }
 
         } catch (SQLException ex1) {
+            String error = ex1.getMessage();
+
         } catch (ClassNotFoundException ex2) {
+            String error = ex2.getMessage();
         }
         return result_list;
     }

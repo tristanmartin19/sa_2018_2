@@ -102,16 +102,20 @@ public class search {
     public void addSearch() {
         try {
             Connection connection = data_handler.connectToDB();
+            int integer_category = 0;
+            int integer_poi = 0;
 
             ResultSet result_category;
             result_category = data_handler.getCategory(connection, category);
-            result_category.first();
-            int integer_category = result_category.getInt("category_id");
+            if (result_category.first()) {
+                integer_category = result_category.getInt("category_id");
+            }
 
             ResultSet result_poi;
             result_poi = data_handler.getPointOfInterest(connection, poi);
-            result_poi.first();
-            int integer_poi = result_poi.getInt("poi_id");
+            if (result_poi.first()) {
+                integer_poi = result_poi.getInt("poi_id");
+            }
 
 
 
@@ -120,8 +124,12 @@ public class search {
 
             connection.close();
         }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
+        catch (SQLException ex1) {
+            String error = ex1.getMessage();
+        }
+        catch (ClassNotFoundException ex2) {
+            String error = ex2.getMessage();
+        }
     }
 
 
@@ -175,7 +183,9 @@ public class search {
 
         }
         catch (ClassNotFoundException ex1){}
-        catch (SQLException ex2) {}
+        catch (SQLException ex2) {
+            String error = ex2.getMessage();
+        }
 
         return shops;
     }
