@@ -43,7 +43,9 @@ public class shop {
             data_handler.AddShop(connection, name, 0, longitude, latitude, homepage, actual_category);
         }
         catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
+        catch (ClassNotFoundException ex2) {
+            String error = ex2.getMessage();
+        }
     }
 
     public void editShop(String new_name, double new_longitude, double new_latitude, String new_homepage, String new_category) {
