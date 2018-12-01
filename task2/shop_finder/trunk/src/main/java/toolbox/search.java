@@ -8,21 +8,23 @@ import java.util.List;
 
 public class search {
     int id;
+    String search_name;
     String name;
     String category;
     int distance;
     String poi;
     datahandler data_handler;
 
-    public void setSearch(String new_name, String new_category, int new_distance, String new_poi) {
+    public void setSearch(String fav_name, String new_search_name, String new_name, String new_category, int new_distance, String new_poi) {
+        this.search_name = fav_name;
         this.name = new_name;
         this.category = new_category;
         this.distance = new_distance;
         this.poi = new_poi;
     }
 
-    public void editSearch(String new_name, String new_category, int new_distance, String new_poi) {
-        setSearch(new_name, new_category, new_distance, new_poi);
+    public void editSearch(String new_search_name, String new_name, String new_category, int new_distance, String new_poi) {
+        setSearch(new_search_name, new_search_name, new_name, new_category, new_distance, new_poi);
 
         try {
             Connection connection = data_handler.connectToDB();
@@ -37,7 +39,7 @@ public class search {
 
 
 
-            data_handler.EditFavorite(connection, id, "", int_category, name, integer_poi, distance);
+            data_handler.EditFavorite(connection, id, search_name, int_category, name, integer_poi, distance);
         }
         catch (SQLException ex1) {}
         catch (ClassNotFoundException ex2) {}
@@ -75,10 +77,11 @@ public class search {
 
                 ResultSet pointofinterrest_r = data_handler.getPointOfInterest(connection, integer_poi);
                 pointofinterrest_r.first();
-                String string_poi = pointofinterrest_r.getString("name");
+                String string_poi = pointofinterrest_r.getString("points_of_interest.name");
 
 
                 search new_search = new search(result_searches.getInt("favourite_id"),
+                        result_searches.getString("favourites.name"),
                         result_searches.getString("searched_shop_name"),
                        string_category ,
                         result_searches.getInt("distance_to_poi"),
@@ -207,13 +210,18 @@ public class search {
         return null;
     }
 
-    public search(int id, String name, String category, int distance, String poi) {
+    public search(int id, String search_name,  String name, String category, int distance, String poi) {
         this.id = id;
+        this.search_name = search_name;
         this.name = name;
         this.category = category;
         this.distance = distance;
         this.poi = poi;
         this.data_handler = new datahandler();
+    }
+
+    public String getSearchName() {
+        return search_name;
     }
 
     public String getName() {
@@ -249,8 +257,12 @@ public class search {
     }
 
     public String toString() {
+        String print_search_name = search_name;
 
-        String buffer = name + ", " + category + ", Located " + distance + "m near to location '" + poi+"'";
+        if (search_name.equals(""))
+            print_search_name = "<No name specified>";
+
+        String buffer =  print_search_name +"\nSearch for " + category + " with name '"+ name + "'\nLocated " + distance + "m near to location '" + poi+"'";
         return buffer;
     }
 }
