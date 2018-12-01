@@ -120,8 +120,12 @@ public class shop {
     }
 
     public String toString() {
-        String buffer = name + " (" + category + ")\n    Lon: " + longitude + "  Lat: " + latitude + "\n    Homepage: " +
-            homepage;
+        String homepage_part = "Homepage: "+ homepage;
+        if (homepage.equals(""))
+            homepage_part = "";
+
+
+        String buffer = name + " (" + category + ")\n    Lon: " + longitude + "  Lat: " + latitude + "\n" +   homepage_part;
         return buffer;
     }
 }
