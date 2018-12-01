@@ -125,7 +125,7 @@ public class datahandler {
     public ResultSet getCategory(Connection connection, String name) throws SQLException{
 
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * from shop_categories WHERE name_category = '"+name+"'");
+        ResultSet resultSet = statement.executeQuery("SELECT * from shop_categories WHERE category_name = '"+name+"'");
 
         return resultSet;
 
@@ -135,7 +135,7 @@ public class datahandler {
 
         int catID = 0;
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT category_id from shop_categories WHERE name_category = '"+name+"'");
+        ResultSet resultSet = statement.executeQuery("SELECT category_id from shop_categories WHERE category_name = '"+name+"'");
 
         while (resultSet.next()){
             catID = resultSet.getInt("category_id");
