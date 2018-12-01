@@ -21,7 +21,7 @@ public class Main extends Application {
         //info PopUp
         Alert popup = new Alert(AlertType.INFORMATION);
         popup.setTitle("Information");
-        popup.setHeaderText("To edit or delete Shops in the result list of your search or in the favorite list, just click at it");
+        popup.setHeaderText("To edit or delete a shop in your search results or in your favorites, just click on it!");
 
         popup.showAndWait();
         //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",123);

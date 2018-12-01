@@ -173,7 +173,7 @@ public class datahandler {
     public ResultSet getPOI(Connection connection) throws SQLException{
 
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * from points_of_interest ");
+        ResultSet resultSet = statement.executeQuery("SELECT * from points_of_interest ORDER BY name ");
 
         return resultSet;
     }
