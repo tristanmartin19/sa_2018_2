@@ -2,12 +2,15 @@ package swing;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+
 import java.net.URL;
+
 import javafx.fxml.Initializable;
 
 
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 import javafx.collections.FXCollections;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -18,8 +21,8 @@ import toolbox.search;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
-public class Controller implements Initializable{
-    private search actual_search = new search(0, "","",0,"");
+public class Controller implements Initializable {
+    private search actual_search = new search(0, "","", "", 0, "");
     private ObservableList<shop> items_results;
     private ObservableList<search> items_searches;
     private ObservableList<String> items_categories;
@@ -82,13 +85,13 @@ public class Controller implements Initializable{
     private TabPane tabPane;
 
     @FXML
-    private void searchAction(ActionEvent e){
+    private void searchAction(ActionEvent e) {
         items_results.clear();
 
         String category_sel = search_category.getSelectionModel().getSelectedItem().toString();
         String poi_sel = search_poi.getSelectionModel().getSelectedItem().toString();
 
-        if ((category_sel.equals("<Select>") ) || (category_sel.equals("<Show All>")))
+        if ((category_sel.equals("<Select>")) || (category_sel.equals("<Show All>")))
             category_sel = "";
 
         if ((poi_sel.equals("<Select>")) || (poi_sel.equals("<Show All>")))
@@ -98,18 +101,17 @@ public class Controller implements Initializable{
 
         try {
             distance_int = Integer.parseInt(search_distance.getText());
+        } catch (NumberFormatException ex1) {
+            distance_int = 0;
         }
-        catch (NumberFormatException ex1) {distance_int = 0;}
-
-
 
 
         results.setItems(FXCollections.observableArrayList(actual_search.getShops(search_name.getText(),
-                category_sel, poi_sel,distance_int)));
+                category_sel, poi_sel, distance_int)));
     }
 
     @FXML
-    private void addAction(ActionEvent event){
+    private void addAction(ActionEvent event) {
 
         try {
             datahandler new_dh = new datahandler();
@@ -126,15 +128,14 @@ public class Controller implements Initializable{
             add_longitude.setText("");
             add_latitude.setText("");
             add_homepage.setText("");
+        } catch (NumberFormatException ex1) {
         }
-        catch (NumberFormatException ex1) {}
 
     }
 
 
-
     @FXML
-    private void showAllAction(ActionEvent e){
+    private void showAllAction(ActionEvent e) {
         items_results.clear();
 
         //clear sheet
@@ -148,24 +149,63 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    private void saveAction(ActionEvent e){
-        try {
-            search new_search = new search(0, search_name.getText(),
-                    search_category.getSelectionModel().getSelectedItem().toString(),
-                    Integer.parseInt(search_distance.getText()),
-                    search_poi.getSelectionModel().getSelectedItem().toString());
-            new_search.addSearch();
-            items_searches.add(new_search);
+    private void saveAction(ActionEvent e) {
+
+
+        Alert popup = new Alert(Alert.AlertType.CONFIRMATION);
+        popup.setTitle("Add Favorite");
+        ButtonType save = new ButtonType("Save");
+        ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        popup.getButtonTypes().setAll(save, cancel);
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+
+        TextField name = new TextField();
+        name.setText("");
+
+
+        grid.add(new Label("Search name:"), 0, 0);
+        grid.add(name, 1, 0);
+
+
+        popup.getDialogPane().setContent(grid);
+
+        Optional<ButtonType> result = popup.showAndWait();
+        if (result.get() == save) {
+            try {
+                // control search_distance:
+                int search_distance_2 = 0;
+                if (!search_distance.getText().equals(""))
+                    search_distance_2 = Integer.parseInt(search_distance.getText());
+
+                //create a new search item:
+                search new_search = new search(0, name.getText(), search_name.getText(),
+                        search_category.getSelectionModel().getSelectedItem().toString(),
+                        search_distance_2,
+                        search_poi.getSelectionModel().getSelectedItem().toString());
+                new_search.addSearch();
+                items_searches.add(new_search);
+
+
+            } catch (NumberFormatException ex1) {
+
+
+            }
+
+
         }
-        catch (NumberFormatException ex1) {}
+
+
     }
 
     @FXML
-    private void favoriteClick(MouseEvent e){
+    private void favoriteClick(MouseEvent e) {
 
         search selected = favorites.getSelectionModel().getSelectedItem();
 
-        if (selected != null){
+        if (selected != null) {
             Alert popup = new Alert(Alert.AlertType.CONFIRMATION);
             popup.setTitle("Edit Favorite");
             ButtonType again = new ButtonType("Search Again");
@@ -178,6 +218,9 @@ public class Controller implements Initializable{
             grid.setHgap(10);
             grid.setVgap(10);
 
+            TextField fav_name = new TextField();
+            fav_name.setText(selected.getSearchName());
+
             TextField name = new TextField();
             name.setText(selected.getName());
 
@@ -185,7 +228,6 @@ public class Controller implements Initializable{
 
             TextField distance = new TextField();
             ComboBox<String> poi = new ComboBox<>();
-
 
 
             category.setItems(items_categories);
@@ -196,32 +238,30 @@ public class Controller implements Initializable{
 
             distance.setText(Integer.toString(selected.getDistance()));
 
-
-
-
-
-            grid.add(new Label("Name"),0,0);
-            grid.add(name,1,0);
-            grid.add(new Label("distance around"),0,2);
-            grid.add(distance,1,2);
-            grid.add(new Label("POI"),0,3);
-            grid.add(poi,1,3);
-            grid.add(new Label("Category"),0,1);
-            grid.add(category,1,1);
+            grid.add(new Label("Search name"), 0, 0);
+            grid.add(fav_name, 1, 0);
+            grid.add(new Label("Name"), 0, 1);
+            grid.add(name, 1, 1);
+            grid.add(new Label("distance around"), 0, 3);
+            grid.add(distance, 1, 3);
+            grid.add(new Label("POI"), 0, 4);
+            grid.add(poi, 1, 4);
+            grid.add(new Label("Category"), 0, 2);
+            grid.add(category, 1, 2);
 
             popup.getDialogPane().setContent(grid);
 
             Optional<ButtonType> result = popup.showAndWait();
-            if(result.get()== edit) {
+            if (result.get() == edit) {
                 try {
-                    selected.editSearch(name.getText(), category.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(distance.getText()),
-                            poi.getSelectionModel().getSelectedItem().toString() );
+                    selected.editSearch( fav_name.getText(), name.getText(), category.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(distance.getText()),
+                            poi.getSelectionModel().getSelectedItem().toString());
+                } catch (NumberFormatException ex1) {
                 }
-                catch (NumberFormatException ex1) {}
 
                 favorites.refresh();
 
-            } else if(result.get() == delete){
+            } else if (result.get() == delete) {
                 items_searches.remove(selected);
                 selected.deleteSearch();
                 favorites.refresh();
@@ -245,7 +285,7 @@ public class Controller implements Initializable{
     }
 
     @FXML
-    private void searchClick(MouseEvent e){
+    private void searchClick(MouseEvent e) {
         shop selected = results.getSelectionModel().getSelectedItem();
 
         if (selected != null) {
@@ -274,47 +314,45 @@ public class Controller implements Initializable{
             category.setItems(FXCollections.observableArrayList());
 
 
-
             category.setItems(items_categories);
             category.setValue(selected.getCategory());
 
 
-
-            grid.add(new Label("Name"),0,0);
-            grid.add(name,1,0);
-            grid.add(new Label("Longitude"),0,1);
-            grid.add(longitude,1,1);
-            grid.add(new Label("Latitude"),0,2);
-            grid.add(latitude,1,2);
-            grid.add(new Label("Homepage"),0,3);
-            grid.add(homepage,1,3);
-            grid.add(new Label("Category"),0,4);
-            grid.add(category,1,4);
+            grid.add(new Label("Name"), 0, 0);
+            grid.add(name, 1, 0);
+            grid.add(new Label("Longitude"), 0, 1);
+            grid.add(longitude, 1, 1);
+            grid.add(new Label("Latitude"), 0, 2);
+            grid.add(latitude, 1, 2);
+            grid.add(new Label("Homepage"), 0, 3);
+            grid.add(homepage, 1, 3);
+            grid.add(new Label("Category"), 0, 4);
+            grid.add(category, 1, 4);
 
             popup.getDialogPane().setContent(grid);
 
             Optional<ButtonType> result = popup.showAndWait();
-            if(result.get()== edit) {
+            if (result.get() == edit) {
 
                 String longitude_text = longitude.getText();
                 String latitude_text = latitude.getText();
 
                 try {
-                    selected.editShop(name.getText(), Double.parseDouble(longitude_text), Double.parseDouble(latitude_text),homepage.getText(), category.getSelectionModel().getSelectedItem().toString());
+                    selected.editShop(name.getText(), Double.parseDouble(longitude_text), Double.parseDouble(latitude_text), homepage.getText(), category.getSelectionModel().getSelectedItem().toString());
+                } catch (NumberFormatException ex1) {
                 }
-                catch (NumberFormatException ex1) {}
 
 
                 results.refresh();
 
 
-            } else if(result.get() == delete){
+            } else if (result.get() == delete) {
                 items_results.remove(selected);
                 selected.deleteShop();
                 results.refresh();
 
 
-            } else{
+            } else {
 
             }
         }
@@ -340,7 +378,6 @@ public class Controller implements Initializable{
 
         search_poi.setItems(init_helper.toSearchList(items_pois));
         search_poi.setValue("<Select>");
-
 
 
         items_searches = FXCollections.observableArrayList(actual_search.getAllSearches());
