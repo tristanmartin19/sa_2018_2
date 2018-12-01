@@ -195,7 +195,7 @@ public class Controller implements Initializable{
 
                 while (categories.next())
                 {
-                    categories_list.add(categories.getString("name_category"));
+                    categories_list.add(categories.getString("category_name"));
                 }
 
                 category.setItems(categories_list);
@@ -311,7 +311,7 @@ public class Controller implements Initializable{
 
                 while (categories.next())
                 {
-                    categories_list.add(categories.getString("name_category"));
+                    categories_list.add(categories.getString("category_name"));
                 }
 
                 category.setItems(categories_list);
@@ -383,7 +383,7 @@ public class Controller implements Initializable{
 
             while (categories.next())
             {
-                categories_list.add(categories.getString("name_categorY"));
+                categories_list.add(categories.getString("category_name"));
             }
 
             ObservableList<String> categories_list_search= FXCollections.observableArrayList();

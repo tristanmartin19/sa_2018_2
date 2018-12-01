@@ -29,7 +29,7 @@ public class search {
 
             ResultSet category_r = data_handler.getCategory(connection, category);
             category_r.first();
-            int int_category = category_r.getInt("name_category");
+            int int_category = category_r.getInt("category_name");
 
             ResultSet result_poi;
             result_poi = data_handler.getPointOfInterest(connection, poi);
@@ -71,7 +71,7 @@ public class search {
 
                 ResultSet category_r = data_handler.getCategory(connection, integer_category);
                 category_r.first();
-                String string_category = category_r.getString("name_category");
+                String string_category = category_r.getString("category_name");
 
                 ResultSet pointofinterrest_r = data_handler.getPointOfInterest(connection, integer_poi);
                 pointofinterrest_r.first();
@@ -161,7 +161,7 @@ public class search {
                 shop new_shop = new shop(   results.getString("name"),
                         results.getDouble("longitude"),
                         results.getDouble("latitude"),
-                        results.getString("name_category"),
+                        results.getString("category_name"),
                         results.getString("homepage"),
                         results.getInt("shop_id"),
                         data_handler);
@@ -191,7 +191,7 @@ public class search {
                 shop new_shop = new shop(   results.getString("name"),
                                             results.getDouble("longitude"),
                                             results.getDouble("latitude"),
-                                            results.getString("name_category"),
+                                            results.getString("category_name"),
                                             results.getString("homepage"),
                                             results.getInt("shop_id"),
                                             data_handler);
