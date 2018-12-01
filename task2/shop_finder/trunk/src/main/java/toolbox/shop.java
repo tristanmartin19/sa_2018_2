@@ -1,6 +1,7 @@
 package toolbox;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class shop {
@@ -23,30 +24,38 @@ public class shop {
         this.data_handler = data_handler_;
     }
 
-    private void setShopData(String new_name, double new_longitude, double new_latitude, String new_homepage) {
+    private void setShopData(String new_name, double new_longitude, double new_latitude, String new_homepage, String new_category) {
         name = new_name;
         longitude = new_longitude;
         latitude = new_latitude;
         homepage = new_homepage;
+        category = new_category;
     }
 
     public void addShop() {
         try {
             Connection connection = data_handler.connectToDB();
-            data_handler.AddShop(connection, name, 0, longitude, latitude, homepage,
-                    data_handler.getCategoryID(connection, category));
+
+            ResultSet category_result = data_handler.getCategory(connection, category);
+            category_result.first();
+            int actual_category = category_result.getInt("category_id");
+
+            data_handler.AddShop(connection, name, 0, longitude, latitude, homepage, actual_category);
         }
         catch (SQLException ex1) {}
         catch (ClassNotFoundException ex2) {}
     }
 
-    public void editShop(String new_name, double new_longitude, double new_latitude, String new_homepage) {
-        setShopData(new_name, new_longitude, new_latitude, new_homepage);
+    public void editShop(String new_name, double new_longitude, double new_latitude, String new_homepage, String new_category) {
+        setShopData(new_name, new_longitude, new_latitude, new_homepage, new_category);
 
         try {
             Connection connection = data_handler.connectToDB();
-            data_handler.EditShop(connection, id,name, 0, longitude, latitude, homepage,
-                    data_handler.getCategoryID(connection, category));
+
+            ResultSet category_result = data_handler.getCategory(connection, category);
+            category_result.first();
+            int actual_category = category_result.getInt("category_id");
+            data_handler.EditShop(connection, id,name, 0, longitude, latitude, homepage, actual_category);
         }
         catch (SQLException ex1) {}
         catch (ClassNotFoundException ex2) {}

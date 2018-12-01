@@ -75,6 +75,12 @@ public class Controller implements Initializable{
     private Button add;
 
     @FXML
+    private Tab tab_search;
+
+    @FXML
+    private TabPane tabPane;
+
+    @FXML
     private void searchAction(ActionEvent e){
         items_results.clear();
 
@@ -109,10 +115,16 @@ public class Controller implements Initializable{
             shop new_shop = new shop(add_name.getText(),
                     Double.parseDouble(add_longitude.getText()),
                     Double.parseDouble(add_latitude.getText()),
-                    "supermarket",
+                    add_category.getSelectionModel().getSelectedItem().toString(),
                     add_homepage.getText(), 0, new_dh);
 
             new_shop.addShop();
+
+            add_name.setText("");
+            add_category.setValue("");
+            add_longitude.setText("");
+            add_latitude.setText("");
+            add_homepage.setText("");
         }
         catch (NumberFormatException ex1) {}
 
@@ -210,6 +222,10 @@ public class Controller implements Initializable{
             catch (SQLException ex1) {}
             catch (ClassNotFoundException ex2) {}
 
+            distance.setText(Integer.toString(selected.getDistance()));
+
+
+
 
 
             grid.add(new Label("Name"),0,0);
@@ -240,6 +256,13 @@ public class Controller implements Initializable{
 
 
             } else if (result.get() == again) {
+                //fill in search in search boxes
+                search_name.setText(name.getText());
+                search_category.setValue(category.getValue());
+                search_distance.setText(distance.getText());
+                search_poi.setValue(poi.getValue());
+
+                search.fire();
 
             } else {
 
@@ -320,7 +343,7 @@ public class Controller implements Initializable{
                 String latitude_text = latitude.getText();
 
                 try {
-                    selected.editShop(name.getText(), Double.parseDouble(longitude_text), Double.parseDouble(latitude_text),homepage.getText());
+                    selected.editShop(name.getText(), Double.parseDouble(longitude_text), Double.parseDouble(latitude_text),homepage.getText(), category.getSelectionModel().getSelectedItem().toString());
                 }
                 catch (NumberFormatException ex1) {}
 

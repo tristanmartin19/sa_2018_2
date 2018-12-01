@@ -10,7 +10,7 @@ public class datahandler {
 
     public Connection connectToDB () throws SQLException, ClassNotFoundException {
         String Username = "root";
-        String Pwd = "";
+        String Pwd = "password";
         String URL = "jdbc:mysql://localhost/sa_shop_finder";
         String BugfixURL = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&" +
                 "useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -233,7 +233,7 @@ public class datahandler {
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
 
-        statement.executeQuery("UPDATE shops " +
+        statement.execute("UPDATE shops " +
                 "SET longitude = " + longitude + ", latitude = " + latitude + " , " +
                 "name = ' " + name + "  ' , homepage = ' " + homepage + " ' " +
                 "WHERE shop_id = " + shopID );
@@ -248,17 +248,12 @@ public class datahandler {
                              int searchedPOIId, int MaxDistance  ) throws SQLException{
         // Todo: Test when UI is ready
         Statement statement = connection.createStatement();
-        statement.executeQuery("UPDATE favourites " +
+        statement.execute("UPDATE favourites " +
                 "SET name = '" + favName + "' , category_id = " + searchedCatID + ", " +
                 "searched_shop_name = '" + shopName + "' , " + "poi_id = " + searchedPOIId + " " +
                 " , distance_to_poi = " + MaxDistance + " " +
                 "WHERE favourite_id = " + favoriteID );
 
-        /*statement.executeQuery("UPDATE favourites " +
-                "SET name = '" + favName + "' , category_id = " + searchedCatID + ", " +
-                "searched_shop_name = '" + shopName + "' , " + "poi_id = " + searchedPOIId + " " +
-                " , distance_to_poi = " + MaxDistance + " " +
-                "WHERE favourite_id = " + favoriteID );*/
 
     }
 
