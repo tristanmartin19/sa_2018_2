@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import toolbox.shop;
+//import toolbox.shop;
 
 public class Main extends Application {
 
@@ -18,11 +18,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
-        //info PopUp
+        //info pop-up
         Alert popup = new Alert(AlertType.INFORMATION);
         popup.setTitle("Information");
-        popup.setHeaderText("To edit or delete a shop in your search results or in your favorites, just click on it!");
-
+        popup.setHeaderText("To edit or delete a shop in your search results or favorites, just click on it!");
         popup.showAndWait();
         //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",123);
      //   primaryStage.
