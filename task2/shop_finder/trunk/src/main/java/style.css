@@ -58,15 +58,3 @@
 .st-label {
     -fx-font: 15 "Segoe UI";
 }
-
-#st-search {
-    -fx-background-image: url("img/img-search.png");
-}
-
-#st-add {
-    -fx-background-image: url("img/img-add.png");
-}
-
-#st-favourites {
-    -fx-background-image: url("img/img-favourites.png");
-}
