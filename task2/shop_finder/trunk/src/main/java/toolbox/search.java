@@ -119,7 +119,7 @@ public class search {
 
 
 
-            int new_id = data_handler.AddFavorite(connection, "", integer_category, name, integer_poi, distance);
+            int new_id = data_handler.AddFavorite(connection, search_name, integer_category, name, integer_poi, distance);
             id = new_id;
 
             connection.close();
