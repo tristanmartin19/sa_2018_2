@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="821.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="40.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="821.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="40.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
   <tabs>
     <Tab fx:id="tab_search" text="Search">
       <content>
@@ -68,7 +68,7 @@
                   <Label layoutX="13.0" layoutY="171.0" prefHeight="28.0" prefWidth="106.0" text="Homepage" />
                   <Label layoutX="13.0" layoutY="215.0" prefHeight="28.0" prefWidth="106.0" text="Category" />
                   <ComboBox id="add_category" fx:id="add_category" layoutX="119.0" layoutY="217.0" prefWidth="150.0" />
-                  <Label layoutX="14.0" layoutY="14.0" text="Add a shop" underline="true">
+                  <Label layoutX="14.0" layoutY="14.0" text="Add a Shop" underline="true">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
