@@ -371,13 +371,11 @@ public class Controller implements Initializable {
 
         add_category.setItems(items_categories);
         search_category.setItems(init_helper.toSearchList(items_categories));
-        search_category.setValue("<Select>");
 
 
         items_pois = init_helper.getAllPois();
 
         search_poi.setItems(init_helper.toSearchList(items_pois));
-        search_poi.setValue("<Select>");
 
 
         items_searches = FXCollections.observableArrayList(actual_search.getAllSearches());

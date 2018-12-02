@@ -21,12 +21,13 @@ public class datahandler {
         return connection;
     }
 
-    public ResultSet getAllShops(Connection connection) throws SQLException{
+    public ResultSet getAllShops(Connection connection, orderBy orderBy) throws SQLException{
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * from shops " +
                 "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
-                "INNER join shop_categories sc on category.category_id = sc.category_id ");
+                "INNER join shop_categories sc on category.category_id = sc.category_id "+
+                "order by "+ orderBy.toString());
 
 
         return resultSet;
