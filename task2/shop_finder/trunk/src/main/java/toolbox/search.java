@@ -271,11 +271,21 @@ public class search {
 
     public String toString() {
         String print_search_name = search_name;
+        String print_category = "Search in category '"+ category+"'";
+        String print_location = "Located "+ distance + " meters near location '"+poi+"'";
 
         if (search_name.equals(""))
             print_search_name = "<No name specified>";
 
-        String buffer =  print_search_name +"\nSearch for " + category + " with name '"+ name + "'\nLocated " + distance + "m near to location '" + poi+"'";
+        if (category.equals("undefined"))
+            print_category = "Search in all categories";
+
+        if (poi.equals("undefined"))
+            print_location = "";
+
+
+
+        String buffer =  print_search_name +"\n"+print_category+ " for shops with name of '"+ name + "'\n"+print_location;
         return buffer;
     }
 }

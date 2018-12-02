@@ -122,12 +122,12 @@ public class shop {
     }
 
     public String toString() {
-        String homepage_part = "Homepage: "+ homepage;
+        String print_homepage = "Homepage: "+ homepage;
         if (homepage.equals(""))
-            homepage_part = "";
+            print_homepage = "";
 
 
-        String buffer = name + " (" + category + ")\n    Lon: " + longitude + "  Lat: " + latitude + "\n" +   homepage_part;
+        String buffer = name + " (" + category + ")\n    Longitude: " + longitude + "  Latitude: " + latitude + "\n" +   print_homepage;
         return buffer;
     }
 }

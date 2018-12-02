@@ -266,7 +266,6 @@ public class Controller implements Initializable {
 
     @FXML
     private void favoriteClick(MouseEvent e) {
-
         search selected = favorites.getSelectionModel().getSelectedItem();
 
         if (selected != null) {
@@ -295,10 +294,10 @@ public class Controller implements Initializable {
             ComboBox<String> poi = new ComboBox<>();
 
 
-            category.setItems(init_helper.toAddList(items_categories));
+            category.setItems(items_categories);
             category.setValue(selected.getCategory());
 
-            poi.setItems(init_helper.toAddList(items_pois));
+            poi.setItems(items_pois);
             poi.setValue(selected.getPoi());
 
             distance.setText(Integer.toString(selected.getDistance()));
@@ -340,6 +339,8 @@ public class Controller implements Initializable {
                 search_poi.setValue(poi.getValue());
 
                 search.fire();
+
+
 
             } else {
 
@@ -447,7 +448,6 @@ public class Controller implements Initializable {
 
         items_searches = FXCollections.observableArrayList(actual_search.getAllSearches());
         favorites.setItems(items_searches);
-
 
     }
 
