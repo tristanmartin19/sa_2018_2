@@ -102,6 +102,13 @@ public class datahandler {
                     "where shops.name like '%" + shopName + "%' and sc.category_id =" + categoryID + " " +
                     "order by " + orderBy.toString() );
         }
+        else if (shopName.equals("") && (categoryID != 0)){  //search for all shops of a category
+            resultSet = statement.executeQuery("SELECT *  from shops " +
+                    "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
+                    "INNER join shop_categories sc on category.category_id = sc.category_id " +
+                    "where  sc.category_id =" + categoryID + " " +
+                    "order by " + orderBy.toString());
+        }
         else {
             resultSet = statement.executeQuery("SELECT *  from shops " +
                     "INNER JOIN shop_has_categories category on shops.shop_id = category.shop_id " +
