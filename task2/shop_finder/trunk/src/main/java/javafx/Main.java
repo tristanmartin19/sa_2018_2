@@ -7,13 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-//import toolbox.shop;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
         root.getStylesheets().clear();
         root.getStylesheets().add("style.css");
         primaryStage.setTitle("Shop Finder");
@@ -27,7 +26,6 @@ public class Main extends Application {
         popup.setHeaderText("To edit or delete a shop in your search results or favorites, just click on it!");
         popup.showAndWait();
 
-     //   primaryStage.
     }
 
 

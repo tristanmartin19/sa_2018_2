@@ -41,9 +41,8 @@ public class shop {
             int actual_category = category_result.getInt("category_id");
 
             data_handler.AddShop(connection, name, 0, longitude, latitude, homepage, actual_category);
-        }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {
+        } catch (SQLException ex1) {
+        } catch (ClassNotFoundException ex2) {
             String error = ex2.getMessage();
         }
     }
@@ -57,19 +56,19 @@ public class shop {
             ResultSet category_result = data_handler.getCategory(connection, category);
             category_result.first();
             int actual_category = category_result.getInt("category_id");
-            data_handler.EditShop(connection, id,name, 0, longitude, latitude, homepage, actual_category);
+            data_handler.EditShop(connection, id, name, 0, longitude, latitude, homepage, actual_category);
+        } catch (SQLException ex1) {
+        } catch (ClassNotFoundException ex2) {
         }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
     }
 
     public void deleteShop() {
         try {
             Connection connection = data_handler.connectToDB();
             data_handler.DeleteShop(connection, id);
+        } catch (SQLException ex1) {
+        } catch (ClassNotFoundException ex2) {
         }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
 
     }
 
@@ -122,12 +121,12 @@ public class shop {
     }
 
     public String toString() {
-        String print_homepage = "Homepage: "+ homepage;
+        String print_homepage = "Homepage: " + homepage;
         if (homepage.equals(""))
             print_homepage = "";
 
 
-        String buffer = name + " (" + category + ")\n    Longitude: " + longitude + "  Latitude: " + latitude + "\n" +   print_homepage;
+        String buffer = name + " (" + category + ")\n    Longitude: " + longitude + "  Latitude: " + latitude + "\n" + print_homepage;
         return buffer;
     }
 }

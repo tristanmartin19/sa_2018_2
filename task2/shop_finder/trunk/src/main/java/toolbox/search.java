@@ -38,21 +38,20 @@ public class search {
             int integer_poi = result_poi.getInt("poi_id");
 
 
-
             data_handler.EditFavorite(connection, id, search_name, int_category, name, integer_poi, distance);
+        } catch (SQLException ex1) {
+        } catch (ClassNotFoundException ex2) {
         }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
 
     }
 
     public void deleteSearch() {
         try {
             Connection connection = data_handler.connectToDB();
-            data_handler.DeleteFavorite(connection, id );
+            data_handler.DeleteFavorite(connection, id);
+        } catch (SQLException ex1) {
+        } catch (ClassNotFoundException ex2) {
         }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2){}
     }
 
     public List<search> getAllSearches() {
@@ -65,9 +64,7 @@ public class search {
             result_searches = data_handler.getAllSearches(connection);
 
 
-
-            while (result_searches.next())
-            {
+            while (result_searches.next()) {
                 int integer_category = result_searches.getInt("category_id");
                 int integer_poi = result_searches.getInt("poi_id");
 
@@ -83,18 +80,18 @@ public class search {
                 search new_search = new search(result_searches.getInt("favourite_id"),
                         result_searches.getString("favourites.name"),
                         result_searches.getString("searched_shop_name"),
-                       string_category ,
+                        string_category,
                         result_searches.getInt("distance_to_poi"),
                         string_poi
-                        );
+                );
                 searches.add(new_search);
 
             }
 
 
+        } catch (SQLException ex1) {
+        } catch (ClassNotFoundException ex2) {
         }
-        catch (SQLException ex1) {}
-        catch (ClassNotFoundException ex2) {}
 
         return searches;
     }
@@ -118,16 +115,13 @@ public class search {
             }
 
 
-
             int new_id = data_handler.AddFavorite(connection, search_name, integer_category, name, integer_poi, distance);
             id = new_id;
 
             connection.close();
-        }
-        catch (SQLException ex1) {
+        } catch (SQLException ex1) {
             String error = ex1.getMessage();
-        }
-        catch (ClassNotFoundException ex2) {
+        } catch (ClassNotFoundException ex2) {
             String error = ex2.getMessage();
         }
     }
@@ -137,7 +131,6 @@ public class search {
                                String poi, int distance) {
 
 
-
         List<shop> shops = new ArrayList<shop>();
         int category_number = 0;
         int poi_number = 0;
@@ -145,34 +138,29 @@ public class search {
         try {
             Connection connection = data_handler.connectToDB();
 
-            //give category and poi integer number, if they were selected
+            //give category and poi an integer number, if they were selected
             if (!category.equals("undefined")) {
                 ResultSet category_result = data_handler.getCategory(connection, category);
                 category_result.first();
                 category_number = category_result.getInt("category_id");
-            }
-            else { //search for all categories
+            } else { //search for all categories
                 category_number = 0;
             }
 
 
-            if (!poi.equals("undefined"))
-            {
-                ResultSet poi_result = data_handler.getPointOfInterest(connection,poi);
+            if (!poi.equals("undefined")) {
+                ResultSet poi_result = data_handler.getPointOfInterest(connection, poi);
                 poi_result.first();
                 poi_number = poi_result.getInt("poi_id");
             }
 
 
-
-
-            ResultSet results  = data_handler.getShops(connection, name, category_number,
+            ResultSet results = data_handler.getShops(connection, name, category_number,
                     poi_number, distance, datahandler.orderBy.name);
 
-            while (results.next())
-            {
+            while (results.next()) {
                 //make a new shop
-                shop new_shop = new shop(   results.getString("name"),
+                shop new_shop = new shop(results.getString("name"),
                         results.getDouble("longitude"),
                         results.getDouble("latitude"),
                         results.getString("category_name"),
@@ -184,9 +172,8 @@ public class search {
 
             return shops;
 
-        }
-        catch (ClassNotFoundException ex1){}
-        catch (SQLException ex2) {
+        } catch (ClassNotFoundException ex1) {
+        } catch (SQLException ex2) {
             String error = ex2.getMessage();
         }
 
@@ -195,35 +182,34 @@ public class search {
 
     public List<shop> getAllShops() {
 
-       List<shop> shops = new ArrayList<shop>();
+        List<shop> shops = new ArrayList<shop>();
 
         try {
             Connection connection = data_handler.connectToDB();
-            ResultSet results  = data_handler.getAllShops(connection, datahandler.orderBy.name);
+            ResultSet results = data_handler.getAllShops(connection, datahandler.orderBy.name);
 
-            while (results.next())
-            {
+            while (results.next()) {
                 //make a new shop
-                shop new_shop = new shop(   results.getString("name"),
-                                            results.getDouble("longitude"),
-                                            results.getDouble("latitude"),
-                                            results.getString("category_name"),
-                                            results.getString("homepage"),
-                                            results.getInt("shop_id"),
-                                            data_handler);
+                shop new_shop = new shop(results.getString("name"),
+                        results.getDouble("longitude"),
+                        results.getDouble("latitude"),
+                        results.getString("category_name"),
+                        results.getString("homepage"),
+                        results.getInt("shop_id"),
+                        data_handler);
                 shops.add(new_shop);
             }
 
             return shops;
 
+        } catch (ClassNotFoundException ex1) {
+        } catch (SQLException ex2) {
         }
-        catch (ClassNotFoundException ex1){}
-        catch (SQLException ex2) {}
 
         return null;
     }
 
-    public search(int id, String search_name,  String name, String category, int distance, String poi) {
+    public search(int id, String search_name, String name, String category, int distance, String poi) {
         this.id = id;
         this.search_name = search_name;
         this.name = name;
@@ -271,8 +257,8 @@ public class search {
 
     public String toString() {
         String print_search_name = search_name;
-        String print_category = "Search in category '"+ category+"'";
-        String print_location = "Located "+ distance + " meters near location '"+poi+"'";
+        String print_category = "Search in category '" + category + "'";
+        String print_location = "Located " + distance + " meters near location '" + poi + "'";
 
         if (search_name.equals(""))
             print_search_name = "<No name specified>";
@@ -284,8 +270,7 @@ public class search {
             print_location = "";
 
 
-
-        String buffer =  print_search_name +"\n"+print_category+ " for shops with name of '"+ name + "'\n"+print_location;
+        String buffer = print_search_name + "\n" + print_category + " for shops with name of '" + name + "'\n" + print_location;
         return buffer;
     }
 }

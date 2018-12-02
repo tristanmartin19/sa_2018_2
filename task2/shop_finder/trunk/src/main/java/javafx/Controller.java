@@ -22,14 +22,14 @@ import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
 public class Controller implements Initializable {
-    private search actual_search = new search(0, "","", "", 0, "");
+    private search actual_search = new search(0, "", "", "", 0, "");
     private ObservableList<shop> items_results;
     private ObservableList<search> items_searches;
     private ObservableList<String> items_categories;
     private ObservableList<String> items_pois;
 
 
-    private helper init_helper =  new helper();
+    private helper init_helper = new helper();
     @FXML
     private ListView<shop> results;
 
@@ -117,24 +117,18 @@ public class Controller implements Initializable {
 
         boolean correct_input = true;
         //check user input
-        if (add_category.getSelectionModel().getSelectedItem() == null)
-        {
+        if (add_category.getSelectionModel().getSelectedItem() == null) {
             add_category.setStyle("-fx-border-color: red");
             correct_input = false;
-        }
-        else
-        {
+        } else {
             add_category.setStyle("-fx-border-color: green");
         }
 
 
-        if (add_name.getText().equals(""))
-        {
+        if (add_name.getText().equals("")) {
             add_name.setStyle("-fx-border-color: red");
             correct_input = false;
-        }
-        else
-        {
+        } else {
             add_name.setStyle("-fx-border-color: green");
         }
 
@@ -144,8 +138,7 @@ public class Controller implements Initializable {
         try {
             new_longitude = Double.parseDouble(add_longitude.getText());
             add_longitude.setStyle("-fx-border-color: green");
-        }
-        catch (NumberFormatException ex1) {
+        } catch (NumberFormatException ex1) {
             correct_input = false;
             add_longitude.setStyle("-fx-border-color: red");
         }
@@ -153,12 +146,10 @@ public class Controller implements Initializable {
         try {
             new_latitude = Double.parseDouble(add_latitude.getText());
             add_latitude.setStyle("-fx-border-color: green");
-        }
-        catch (NumberFormatException ex1) {
+        } catch (NumberFormatException ex1) {
             correct_input = false;
             add_latitude.setStyle("-fx-border-color: red");
         }
-
 
 
         if (correct_input) {
@@ -172,12 +163,11 @@ public class Controller implements Initializable {
             new_shop.addShop();
 
 
-
             Alert popup = new Alert(Alert.AlertType.INFORMATION);
             popup.getDialogPane().getStylesheets().add("style.css");
             popup.setTitle("Shop added successfully!");
             popup.setContentText("You added successfully a new shop!\n" +
-                    "Name of the new shop: "+add_name.getText());
+                    "Name of the new shop: " + add_name.getText());
             ButtonType ok = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
             popup.getButtonTypes().setAll(ok);
             popup.showAndWait();
@@ -188,8 +178,6 @@ public class Controller implements Initializable {
             add_latitude.setText("");
             add_homepage.setText("");
         }
-
-
 
 
     }
@@ -241,7 +229,6 @@ public class Controller implements Initializable {
                 int search_distance_2 = 0;
                 if (!search_distance.getText().equals(""))
                     search_distance_2 = Integer.parseInt(search_distance.getText());
-
 
 
                 //create a new search item:
@@ -318,7 +305,7 @@ public class Controller implements Initializable {
             Optional<ButtonType> result = popup.showAndWait();
             if (result.get() == edit) {
                 try {
-                    selected.editSearch( fav_name.getText(), name.getText(), category.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(distance.getText()),
+                    selected.editSearch(fav_name.getText(), name.getText(), category.getSelectionModel().getSelectedItem().toString(), Integer.parseInt(distance.getText()),
                             poi.getSelectionModel().getSelectedItem().toString());
                 } catch (NumberFormatException ex1) {
                 }
@@ -429,8 +416,6 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         items_results = FXCollections.observableArrayList();
-
-
 
 
         items_categories = init_helper.getAllCategories();
