@@ -339,7 +339,7 @@ public class Controller implements Initializable {
                 search_poi.setValue(poi.getValue());
 
                 search.fire();
-
+                tabPane.getSelectionModel().select(tab_search);
 
 
             } else {
