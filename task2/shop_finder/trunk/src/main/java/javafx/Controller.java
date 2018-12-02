@@ -242,7 +242,7 @@ public class Controller implements Initializable {
             grid.add(fav_name, 1, 0);
             grid.add(new Label("Shop Name"), 0, 1);
             grid.add(name, 1, 1);
-            grid.add(new Label("Distance(meters)"), 0, 3);
+            grid.add(new Label("Distance (meters)"), 0, 3);
             grid.add(distance, 1, 3);
             grid.add(new Label("Point of Interest"), 0, 4);
             grid.add(poi, 1, 4);
