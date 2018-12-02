@@ -7,24 +7,39 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+// class helper
+// provides additional functions for the interface
+//
 public class helper {
 
+    public final String SELECT_ALL_BOX = "--";
+
+    // function inputToClass
+    // changes the String S to the String "undefined"
+    // to translate User-Interface to DB, Class names
     public String inputToClass(String text)
     {
-        if (text.equals("<Show All>"))
+        if (text.equals(SELECT_ALL_BOX))
             return "undefined";
         else
             return text;
     }
 
-    public String ClassToInput(String text)
+    // function classToInput
+    // changes the String "undefined" to SELECT_ALL_BOX
+    // to translate DB, Class names to user-friendly names
+    public String classToInput(String text)
     {
         if (text.equals("undefined"))
-            return "<Show All>";
+            return SELECT_ALL_BOX;
         else
             return text;
     }
 
+    // function getAllCategories
+    // returns all Categories in a ObservableList
+    // to prepare ComboBoxes
     public ObservableList<String> getAllCategories() {
         ObservableList<String> result_list = FXCollections.observableArrayList();
 
@@ -39,7 +54,7 @@ public class helper {
 
 
             while (categories.next()) {
-                result_list.add(ClassToInput(categories.getString("category_name")));
+                result_list.add(classToInput(categories.getString("category_name")));
             }
 
 
@@ -50,12 +65,11 @@ public class helper {
         return result_list.sorted();
     }
 
-    public ObservableList<String> toSearchList(ObservableList<String> current_list) {
-        ObservableList<String> search_list = FXCollections.observableArrayList(current_list);
+    public ObservableList<String> toAddList(ObservableList<String> current_list) {
+        ObservableList<String> add_list = FXCollections.observableArrayList(current_list);
+        add_list.remove(SELECT_ALL_BOX);
 
-
-
-        return search_list;
+        return add_list;
     }
 
     public ObservableList<String> getAllPois() {
@@ -69,7 +83,7 @@ public class helper {
             ResultSet pois = data_h.getPOI(connection);
 
             while (pois.next()) {
-                result_list.add(ClassToInput(pois.getString("name")));
+                result_list.add(classToInput(pois.getString("name")));
             }
 
         } catch (SQLException ex1) {

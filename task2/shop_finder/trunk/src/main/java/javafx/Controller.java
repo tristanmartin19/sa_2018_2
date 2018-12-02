@@ -27,6 +27,8 @@ public class Controller implements Initializable {
     private ObservableList<search> items_searches;
     private ObservableList<String> items_categories;
     private ObservableList<String> items_pois;
+
+
     private helper init_helper =  new helper();
     @FXML
     private ListView<shop> results;
@@ -113,23 +115,82 @@ public class Controller implements Initializable {
     @FXML
     private void addAction(ActionEvent event) {
 
+        boolean correct_input = true;
+        //check user input
+        if (add_category.getSelectionModel().getSelectedItem() == null)
+        {
+            add_category.setStyle("-fx-border-color: red");
+            correct_input = false;
+        }
+        else
+        {
+            add_category.setStyle("-fx-border-color: green");
+        }
+
+
+        if (add_name.getText().equals(""))
+        {
+            add_name.setStyle("-fx-border-color: red");
+            correct_input = false;
+        }
+        else
+        {
+            add_name.setStyle("-fx-border-color: green");
+        }
+
+        double new_longitude = 0;
+        double new_latitude = 0;
+
         try {
+            new_longitude = Double.parseDouble(add_longitude.getText());
+            add_longitude.setStyle("-fx-border-color: green");
+        }
+        catch (NumberFormatException ex1) {
+            correct_input = false;
+            add_longitude.setStyle("-fx-border-color: red");
+        }
+
+        try {
+            new_latitude = Double.parseDouble(add_latitude.getText());
+            add_latitude.setStyle("-fx-border-color: green");
+        }
+        catch (NumberFormatException ex1) {
+            correct_input = false;
+            add_latitude.setStyle("-fx-border-color: red");
+        }
+
+
+
+        if (correct_input) {
             datahandler new_dh = new datahandler();
             shop new_shop = new shop(add_name.getText(),
-                    Double.parseDouble(add_longitude.getText()),
-                    Double.parseDouble(add_latitude.getText()),
+                    new_longitude,
+                    new_latitude,
                     add_category.getSelectionModel().getSelectedItem().toString(),
                     add_homepage.getText(), 0, new_dh);
 
             new_shop.addShop();
+
+
+
+            Alert popup = new Alert(Alert.AlertType.INFORMATION);
+            popup.getDialogPane().getStylesheets().add("style.css");
+            popup.setTitle("Shop added successfully!");
+            popup.setContentText("You added successfully a new shop!\n" +
+                    "Name of the new shop: "+add_name.getText());
+            ButtonType ok = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+            popup.getButtonTypes().setAll(ok);
+            popup.showAndWait();
 
             add_name.setText("");
             add_category.setValue("");
             add_longitude.setText("");
             add_latitude.setText("");
             add_homepage.setText("");
-        } catch (NumberFormatException ex1) {
         }
+
+
+
 
     }
 
@@ -140,8 +201,8 @@ public class Controller implements Initializable {
 
         //clear sheet
         search_name.setText("");
-        search_category.setValue("<Show All>");
-        search_poi.setValue("<Show All>");
+        search_category.setValue(init_helper.SELECT_ALL_BOX);
+        search_poi.setValue(init_helper.SELECT_ALL_BOX);
         search_distance.setText("");
 
 
@@ -153,6 +214,7 @@ public class Controller implements Initializable {
 
 
         Alert popup = new Alert(Alert.AlertType.CONFIRMATION);
+        popup.getDialogPane().getStylesheets().add("style.css");
         popup.setTitle("Add Favorite");
         ButtonType save = new ButtonType("Save");
         ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
@@ -209,6 +271,7 @@ public class Controller implements Initializable {
 
         if (selected != null) {
             Alert popup = new Alert(Alert.AlertType.CONFIRMATION);
+            popup.getDialogPane().getStylesheets().add("style.css");
             popup.setTitle("Edit Favorite");
             ButtonType again = new ButtonType("Search");
             ButtonType edit = new ButtonType("OK");
@@ -232,10 +295,10 @@ public class Controller implements Initializable {
             ComboBox<String> poi = new ComboBox<>();
 
 
-            category.setItems(items_categories);
+            category.setItems(init_helper.toAddList(items_categories));
             category.setValue(selected.getCategory());
 
-            poi.setItems(items_pois);
+            poi.setItems(init_helper.toAddList(items_pois));
             poi.setValue(selected.getPoi());
 
             distance.setText(Integer.toString(selected.getDistance()));
@@ -294,6 +357,7 @@ public class Controller implements Initializable {
             System.out.println(selected.getId());
 
             Alert popup = new Alert(Alert.AlertType.CONFIRMATION);
+            popup.getDialogPane().getStylesheets().add("style.css");
             popup.setTitle("Edit Shop");
             ButtonType edit = new ButtonType("Edit");
             ButtonType delete = new ButtonType("Delete");
@@ -316,7 +380,7 @@ public class Controller implements Initializable {
             category.setItems(FXCollections.observableArrayList());
 
 
-            category.setItems(items_categories);
+            category.setItems(init_helper.toAddList(items_categories));
             category.setValue(selected.getCategory());
 
 
@@ -370,19 +434,21 @@ public class Controller implements Initializable {
 
         items_categories = init_helper.getAllCategories();
 
-        add_category.setItems(items_categories);
-        search_category.setItems(init_helper.toSearchList(items_categories));
-        search_category.setValue(init_helper.ClassToInput("undefined"));
+        add_category.setItems(init_helper.toAddList(items_categories));
+        search_category.setItems(items_categories);
+        search_category.setValue(init_helper.classToInput("undefined"));
 
 
         items_pois = init_helper.getAllPois();
 
-        search_poi.setItems(init_helper.toSearchList(items_pois));
-        search_poi.setValue(init_helper.ClassToInput("undefined"));
+        search_poi.setItems(items_pois);
+        search_poi.setValue(init_helper.classToInput("undefined"));
 
 
         items_searches = FXCollections.observableArrayList(actual_search.getAllSearches());
         favorites.setItems(items_searches);
+
+
     }
 
 }

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -11,32 +15,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="821.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="40.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="821.0" styleClass="st-tab-pane" stylesheets="" tabClosingPolicy="UNAVAILABLE" tabMinHeight="30.0" tabMinWidth="80.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.Controller">
   <tabs>
-    <Tab fx:id="tab_search" text="Search">
+    <Tab id="st-search" fx:id="tab_search" styleClass="st-tab" text="Search">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <SplitPane id="search_page" dividerPositions="0.29679595278246207" layoutX="7.0" layoutY="7.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="635.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane id="search_page" dividerPositions="0.3378119001919386" layoutX="7.0" layoutY="7.0" orientation="VERTICAL" prefHeight="443.0" prefWidth="635.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
-                      <AnchorPane id="search_options" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane id="search_options" minHeight="0.0" minWidth="0.0" prefHeight="177.0" prefWidth="817.0" styleClass="st-anchor-pane">
                            <children>
-                              <Label layoutX="14.0" layoutY="48.0" prefHeight="17.0" prefWidth="64.0" text="Name" />
-                              <Label layoutX="14.0" layoutY="85.0" prefHeight="17.0" prefWidth="67.0" text="Category" />
-                              <Button id="search_button" fx:id="search" layoutX="753.0" layoutY="134.0" mnemonicParsing="false" onAction="#searchAction" text="Search" AnchorPane.rightAnchor="14.0" />
-                              <Button id="save_search" fx:id="save_search" layoutX="725.0" layoutY="11.0" mnemonicParsing="false" onAction="#saveAction" text="Save Search" AnchorPane.rightAnchor="14.0" />
-                              <Button id="show_all" fx:id="show_all" layoutX="611.0" layoutY="11.0" mnemonicParsing="false" onAction="#showAllAction" prefHeight="25.0" prefWidth="101.0" text="Show All" AnchorPane.rightAnchor="107.0" />
-                              <Label layoutX="86.0" layoutY="126.0" prefHeight="17.0" prefWidth="80.0" text="meter around" />
-                              <ComboBox id="search_poi" fx:id="search_poi" layoutX="166.0" layoutY="122.0" prefWidth="150.0" />
+                              <Label layoutX="14.0" layoutY="48.0" prefHeight="17.0" prefWidth="64.0" styleClass="st-label" text="Name" />
+                              <Label layoutX="14.0" layoutY="85.0" prefHeight="17.0" prefWidth="67.0" styleClass="st-label" text="Category" />
+                              <Button id="search_button" fx:id="search" layoutX="753.0" layoutY="134.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="25.0" prefWidth="150.0" styleClass="st-button" text="Search" AnchorPane.rightAnchor="14.0" />
+                              <Button id="save_search" fx:id="save_search" layoutX="725.0" layoutY="11.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="25.0" prefWidth="111.0" styleClass="st-button" text="Save Search" AnchorPane.rightAnchor="14.0" />
+                              <Button id="show_all" fx:id="show_all" layoutX="562.0" layoutY="11.0" mnemonicParsing="false" onAction="#showAllAction" prefHeight="25.0" prefWidth="101.0" styleClass="st-button" text="Show All" AnchorPane.rightAnchor="154.0" />
+                              <Label layoutX="86.0" layoutY="126.0" prefHeight="17.0" prefWidth="110.0" styleClass="st-label" text="meter around" />
+                              <ComboBox id="search_poi" fx:id="search_poi" layoutX="208.0" layoutY="121.0" prefWidth="150.0" />
                               <TextField id="search_name" fx:id="search_name" layoutX="98.0" layoutY="44.0" />
-                              <TextField id="search_radius" fx:id="search_distance" layoutX="14.0" layoutY="122.0" prefHeight="25.0" prefWidth="69.0" />
-                              <Label layoutX="12.0" layoutY="8.0" prefHeight="30.0" prefWidth="138.0" text="Search Options" underline="true" AnchorPane.leftAnchor="12.0">
+                              <TextField id="search_radius" fx:id="search_distance" layoutX="14.0" layoutY="122.0" prefHeight="25.0" prefWidth="69.0" styleClass="text-field" />
+                              <Label layoutX="12.0" layoutY="8.0" prefHeight="30.0" prefWidth="138.0" styleClass="st-title" text="Search Options" AnchorPane.leftAnchor="12.0">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <Label id="search_error" fx:id="search_error" layoutX="382.0" layoutY="48.0" prefHeight="64.0" prefWidth="296.0" text="Error Message" AnchorPane.rightAnchor="14.0" />
-                              <ComboBox fx:id="search_category" layoutX="98.0" layoutY="81.0" prefWidth="150.0" />
+                              <Label id="search_error" fx:id="search_error" layoutX="382.0" layoutY="48.0" prefHeight="64.0" prefWidth="296.0" styleClass="st-label" text="Error Message" AnchorPane.rightAnchor="14.0" />
+                              <ComboBox fx:id="search_category" layoutX="98.0" layoutY="81.0" prefWidth="150.0" styleClass="combo-box" />
                            </children>
                         </AnchorPane>
                       <AnchorPane prefHeight="316.0" prefWidth="819.0">
@@ -50,23 +54,23 @@
         </AnchorPane>
       </content>
     </Tab>
-    <Tab text="Add">
+    <Tab id="st-add" styleClass="st-tab" text="Add">
       <content>
         <AnchorPane id="add_page" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button id="add_shop" fx:id="add" layoutX="138.0" layoutY="270.0" mnemonicParsing="false" onAction="#addAction" prefHeight="36.0" prefWidth="112.0" text="Add" />
+                  <Button id="add_shop" fx:id="add" layoutX="138.0" layoutY="270.0" mnemonicParsing="false" onAction="#addAction" prefHeight="36.0" prefWidth="112.0" styleClass="st-button" text="Add" />
                   <TextField id="add_name" fx:id="add_name" layoutX="119.0" layoutY="47.0" />
                   <TextField id="add_longitude" fx:id="add_longitude" layoutX="119.0" layoutY="86.0" />
                   <TextField id="add_latitude" fx:id="add_latitude" layoutX="119.0" layoutY="128.0" />
                   <TextField id="add_homepage" fx:id="add_homepage" layoutX="119.0" layoutY="172.0" />
-                  <Label layoutX="13.0" layoutY="47.0" prefHeight="28.0" prefWidth="106.0" text="Name" />
-                  <Label layoutX="13.0" layoutY="86.0" prefHeight="28.0" prefWidth="106.0" text="Longitude" />
-                  <Label layoutX="13.0" layoutY="127.0" prefHeight="28.0" prefWidth="106.0" text="Latitude" />
-                  <Label layoutX="13.0" layoutY="171.0" prefHeight="28.0" prefWidth="106.0" text="Homepage" />
-                  <Label layoutX="13.0" layoutY="215.0" prefHeight="28.0" prefWidth="106.0" text="Category" />
-                  <Label id="add_error" fx:id="add_error" layoutX="13.0" layoutY="315.0" prefHeight="93.0" prefWidth="266.0" text="Message" textAlignment="CENTER" />
+                  <Label layoutX="13.0" layoutY="47.0" prefHeight="28.0" prefWidth="106.0" styleClass="st-label" text="Name" />
+                  <Label layoutX="13.0" layoutY="86.0" prefHeight="28.0" prefWidth="106.0" styleClass="st-label" text="Longitude" />
+                  <Label layoutX="13.0" layoutY="127.0" prefHeight="28.0" prefWidth="106.0" styleClass="st-label" text="Latitude" />
+                  <Label layoutX="13.0" layoutY="171.0" prefHeight="28.0" prefWidth="106.0" styleClass="st-label" text="Homepage" />
+                  <Label layoutX="13.0" layoutY="215.0" prefHeight="28.0" prefWidth="106.0" styleClass="st-label" text="Category" />
+                  <Label id="add_error" fx:id="add_error" layoutX="13.0" layoutY="315.0" prefHeight="93.0" prefWidth="266.0" styleClass="st-label" text="Message" textAlignment="CENTER" />
                   <ComboBox id="add_category" fx:id="add_category" layoutX="119.0" layoutY="217.0" prefWidth="150.0" />
-                  <Label layoutX="14.0" layoutY="14.0" text="Add a shop" underline="true">
+                  <Label layoutX="14.0" layoutY="14.0" styleClass="st-title" text="Add a shop">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -74,11 +78,11 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab text="Favorites">
+      <Tab id="st-favourites" styleClass="st-tab" text="Favorites">
          <content>
             <AnchorPane id="favorite_page" minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="810.0">
                <children>
-                  <Label layoutX="11.0" layoutY="5.0" prefHeight="26.0" prefWidth="165.0" text="My Favorites" underline="true" AnchorPane.topAnchor="5.0">
+                  <Label layoutX="11.0" layoutY="5.0" prefHeight="26.0" prefWidth="165.0" styleClass="st-title" text="My Favorites" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
