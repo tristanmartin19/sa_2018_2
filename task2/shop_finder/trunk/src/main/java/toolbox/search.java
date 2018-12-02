@@ -146,7 +146,7 @@ public class search {
             Connection connection = data_handler.connectToDB();
 
             //give category and poi integer number, if they were selected
-            if (!category.equals("")) {
+            if (!category.equals("undefined")) {
                 ResultSet category_result = data_handler.getCategory(connection, category);
                 category_result.first();
                 category_number = category_result.getInt("category_id");
@@ -156,7 +156,7 @@ public class search {
             }
 
 
-            if (!poi.equals(""))
+            if (!poi.equals("undefined"))
             {
                 ResultSet poi_result = data_handler.getPointOfInterest(connection,poi);
                 poi_result.first();

@@ -13,7 +13,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
+        root.getStylesheets().clear();
+        root.getStylesheets().add("style.css");
         primaryStage.setTitle("Shop Finder");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -23,7 +25,7 @@ public class Main extends Application {
         popup.setTitle("Information");
         popup.setHeaderText("To edit or delete a shop in your search results or favorites, just click on it!");
         popup.showAndWait();
-        //shop buffer = new shop("Franz", 12.3456, 54.12345, "Laden", "www.wunderwelt.de",123);
+
      //   primaryStage.
     }
 
