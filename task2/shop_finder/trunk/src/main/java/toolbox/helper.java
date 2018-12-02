@@ -16,10 +16,9 @@ public class helper {
     public final String SELECT_ALL_BOX = "--";
 
     // function inputToClass
-    // changes the String S to the String "undefined"
-    // to translate User-Interface to DB, Class names
-    public String inputToClass(String text)
-    {
+    // changes the string S to the string "undefined"
+    // to translate user interface to DB, class names
+    public String inputToClass(String text) {
         if (text.equals(SELECT_ALL_BOX))
             return "undefined";
         else
@@ -27,10 +26,9 @@ public class helper {
     }
 
     // function classToInput
-    // changes the String "undefined" to SELECT_ALL_BOX
-    // to translate DB, Class names to user-friendly names
-    public String classToInput(String text)
-    {
+    // changes the string "undefined" to SELECT_ALL_BOX
+    // to translate DB, class names to user-friendly names
+    public String classToInput(String text) {
         if (text.equals("undefined"))
             return SELECT_ALL_BOX;
         else
@@ -38,7 +36,7 @@ public class helper {
     }
 
     // function getAllCategories
-    // returns all Categories in a ObservableList
+    // returns all categories in a ObservableList
     // to prepare ComboBoxes
     public ObservableList<String> getAllCategories() {
         ObservableList<String> result_list = FXCollections.observableArrayList();
@@ -49,8 +47,6 @@ public class helper {
             Connection connection = data_h.connectToDB();
 
             ResultSet categories = data_h.getCategories(connection);
-
-
 
 
             while (categories.next()) {
