@@ -208,8 +208,8 @@ public class Controller implements Initializable {
         if (selected != null) {
             Alert popup = new Alert(Alert.AlertType.CONFIRMATION);
             popup.setTitle("Edit Favorite");
-            ButtonType again = new ButtonType("Search Again");
-            ButtonType edit = new ButtonType("Edit");
+            ButtonType again = new ButtonType("Search");
+            ButtonType edit = new ButtonType("OK");
             ButtonType delete = new ButtonType("Delete");
             ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
             popup.getButtonTypes().setAll(again, edit, delete, cancel);
@@ -238,15 +238,15 @@ public class Controller implements Initializable {
 
             distance.setText(Integer.toString(selected.getDistance()));
 
-            grid.add(new Label("Search name"), 0, 0);
+            grid.add(new Label("Search Name"), 0, 0);
             grid.add(fav_name, 1, 0);
-            grid.add(new Label("Name"), 0, 1);
+            grid.add(new Label("Shop Name"), 0, 1);
             grid.add(name, 1, 1);
-            grid.add(new Label("distance around"), 0, 3);
+            grid.add(new Label("Distance(meters)"), 0, 3);
             grid.add(distance, 1, 3);
-            grid.add(new Label("POI"), 0, 4);
+            grid.add(new Label("Point of Interest"), 0, 4);
             grid.add(poi, 1, 4);
-            grid.add(new Label("Category"), 0, 2);
+            grid.add(new Label("Shop Category"), 0, 2);
             grid.add(category, 1, 2);
 
             popup.getDialogPane().setContent(grid);
