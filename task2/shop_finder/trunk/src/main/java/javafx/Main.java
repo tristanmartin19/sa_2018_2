@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui.fxml"));
         root.getStylesheets().clear();
         root.getStylesheets().add("style.css");
         primaryStage.setTitle("Shop Finder");
