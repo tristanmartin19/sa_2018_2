@@ -35,8 +35,7 @@ public class helper {
     public ObservableList<String> toSearchList(ObservableList<String> current_list) {
         ObservableList<String> search_list = FXCollections.observableArrayList(current_list);
 
-        search_list.add(0, "<Select>");
-        search_list.add(1, "<Show All>");
+
 
         return search_list;
     }

@@ -151,6 +151,9 @@ public class search {
                 category_result.first();
                 category_number = category_result.getInt("category_id");
             }
+            else { //search for all categories
+                category_number = 0;
+            }
 
 
             if (!poi.equals(""))
@@ -196,7 +199,7 @@ public class search {
 
         try {
             Connection connection = data_handler.connectToDB();
-            ResultSet results  = data_handler.getAllShops(connection);
+            ResultSet results  = data_handler.getAllShops(connection, datahandler.orderBy.name);
 
             while (results.next())
             {
