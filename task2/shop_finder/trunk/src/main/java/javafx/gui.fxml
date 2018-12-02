@@ -29,7 +29,7 @@
                               <Label layoutX="14.0" layoutY="85.0" prefHeight="17.0" prefWidth="67.0" text="Category" />
                               <Button id="search_button" fx:id="search" layoutY="165.0" mnemonicParsing="false" onAction="#searchAction" text="Search" AnchorPane.leftAnchor="14.0" />
                               <Button id="show_all" fx:id="show_all" layoutX="688.0" layoutY="13.0" mnemonicParsing="false" onAction="#showAllAction" text="Show All" AnchorPane.rightAnchor="14.0" />
-                              <Label layoutX="86.0" layoutY="126.0" prefHeight="17.0" prefWidth="80.0" text="meter around" />
+                              <Label layoutX="86.0" layoutY="126.0" prefHeight="17.0" prefWidth="80.0" text="meters around" />
                               <ComboBox id="search_poi" fx:id="search_poi" layoutX="166.0" layoutY="122.0" prefWidth="150.0" />
                               <TextField id="search_name" fx:id="search_name" layoutX="98.0" layoutY="44.0" />
                               <TextField id="search_radius" fx:id="search_distance" layoutX="14.0" layoutY="122.0" prefHeight="25.0" prefWidth="69.0" />
