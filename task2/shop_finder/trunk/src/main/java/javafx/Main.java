@@ -22,6 +22,7 @@ public class Main extends Application {
 
         //info pop-up
         Alert popup = new Alert(AlertType.INFORMATION);
+        popup.getDialogPane().getStylesheets().add("style.css");
         popup.setTitle("Information");
         popup.setHeaderText("To edit or delete a shop in your search results or favorites, just click on it!");
         popup.showAndWait();

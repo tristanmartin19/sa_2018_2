@@ -1,0 +1,72 @@
+/*css stylesheet*/
+.combo-box-base
+{
+    -fx-background-color: white;
+    -fx-border-color: green;
+}
+
+.text-field{
+    -fx-background-color: white;
+    -fx-border-color: green;
+}
+
+.st-tab-pane {
+    -fx-border-color: green;
+    -fx-background-color: white;
+}
+
+.st-tab {
+    -fx-background-color: #99cc99;
+    -fx-font: 15 "Segoe UI";
+    -fx-padding: 50 0 0 0;
+
+    -fx-background-position: 50% 25%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 45%;
+
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: white;
+}
+
+.scroll-bar:vertical .thumb{
+    -fx-background-radius: 0;
+    -fx-background-color: green;
+}
+
+.tab:selected  {
+    -fx-background-color: green;
+    -fx-border: none;
+}
+
+.focus-indicator {
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.button {
+    -fx-background-radius: 0px;
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+.st-anchor-pane {
+    -fx-background-color: white;
+}
+
+.st-label {
+    -fx-font: 15 "Segoe UI";
+}
+
+#st-search {
+    -fx-background-image: url("img/img-search.png");
+}
+
+#st-add {
+    -fx-background-image: url("img/img-add.png");
+}
+
+#st-favourites {
+    -fx-background-image: url("img/img-favourites.png");
+}
