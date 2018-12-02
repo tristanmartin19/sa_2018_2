@@ -27,6 +27,7 @@ public class Controller implements Initializable {
     private ObservableList<search> items_searches;
     private ObservableList<String> items_categories;
     private ObservableList<String> items_pois;
+    private helper init_helper =  new helper();
     @FXML
     private ListView<shop> results;
 
@@ -91,11 +92,10 @@ public class Controller implements Initializable {
         String category_sel = search_category.getSelectionModel().getSelectedItem().toString();
         String poi_sel = search_poi.getSelectionModel().getSelectedItem().toString();
 
-        if ((category_sel.equals("<Select>")) || (category_sel.equals("<Show All>")))
-            category_sel = "";
 
-        if ((poi_sel.equals("<Select>")) || (poi_sel.equals("<Show All>")))
-            poi_sel = "";
+        category_sel = init_helper.inputToClass(category_sel);
+
+        poi_sel = init_helper.inputToClass(poi_sel);
 
         int distance_int;
 
@@ -180,11 +180,13 @@ public class Controller implements Initializable {
                 if (!search_distance.getText().equals(""))
                     search_distance_2 = Integer.parseInt(search_distance.getText());
 
+
+
                 //create a new search item:
                 search new_search = new search(0, name.getText(), search_name.getText(),
-                        search_category.getSelectionModel().getSelectedItem().toString(),
+                        init_helper.inputToClass(search_category.getSelectionModel().getSelectedItem().toString()),
                         search_distance_2,
-                        search_poi.getSelectionModel().getSelectedItem().toString());
+                        init_helper.inputToClass(search_poi.getSelectionModel().getSelectedItem().toString()));
                 new_search.addSearch();
                 items_searches.add(new_search);
 
@@ -364,8 +366,7 @@ public class Controller implements Initializable {
         items_results = FXCollections.observableArrayList();
 
 
-        //prepare ComboBoxes & global vars
-        helper init_helper = new helper();
+
 
         items_categories = init_helper.getAllCategories();
 

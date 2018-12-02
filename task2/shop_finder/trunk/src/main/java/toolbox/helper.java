@@ -9,6 +9,22 @@ import java.sql.SQLException;
 
 public class helper {
 
+    public String inputToClass(String text)
+    {
+        if (text.equals("<Show All>"))
+            return "undefined";
+        else
+            return text;
+    }
+
+    public String ClassToInput(String text)
+    {
+        if (text.equals("undefined"))
+            return "<Show All>";
+        else
+            return text;
+    }
+
     public ObservableList<String> getAllCategories() {
         ObservableList<String> result_list = FXCollections.observableArrayList();
 
@@ -20,8 +36,10 @@ public class helper {
             ResultSet categories = data_h.getCategories(connection);
 
 
+
+
             while (categories.next()) {
-                result_list.add(categories.getString("category_name"));
+                result_list.add(ClassToInput(categories.getString("category_name")));
             }
 
 
@@ -29,7 +47,7 @@ public class helper {
         } catch (ClassNotFoundException ex2) {
         }
 
-        return result_list;
+        return result_list.sorted();
     }
 
     public ObservableList<String> toSearchList(ObservableList<String> current_list) {
@@ -51,7 +69,7 @@ public class helper {
             ResultSet pois = data_h.getPOI(connection);
 
             while (pois.next()) {
-                result_list.add(pois.getString("name"));
+                result_list.add(ClassToInput(pois.getString("name")));
             }
 
         } catch (SQLException ex1) {
@@ -60,7 +78,7 @@ public class helper {
         } catch (ClassNotFoundException ex2) {
             String error = ex2.getMessage();
         }
-        return result_list;
+        return result_list.sorted();
     }
 
 }
