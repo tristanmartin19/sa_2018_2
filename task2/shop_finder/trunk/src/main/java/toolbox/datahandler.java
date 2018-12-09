@@ -15,7 +15,7 @@ public class datahandler {
         String URL = "jdbc:mysql://localhost:3306/sa_shop_finder";
         String BugfixURL = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&" +
                 "useLegacyDatetimeCode=false&serverTimezone=UTC";
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection connection = DriverManager.getConnection(
                 URL + BugfixURL, Username, Pwd);
 
