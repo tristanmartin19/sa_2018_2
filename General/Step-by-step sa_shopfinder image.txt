@@ -1,0 +1,44 @@
+Erstellen des Shopfinder-Images
+====================
+
+1. IntelliJ
+
+[https://www.jetbrains.com/help/idea/deploying-a-web-app-into-an-app-server-container.html]
+Build a WAR artifact
+
+    Open project settings (Ctrl+Shift+Alt+S) and click Artifacts.
+
+    Click Add (icons general add svg), point to Web Application: Archive, and then click For 'DockerJavaWebApp:war exploded'. If necessary, create a manifest file.
+
+    Open the Build menu and click Build Artifacts. Select to build the DockerJavaWebApp:war artifact. You should see the artifact out/artifacts/DockerJavaWebApp_war/DockerJavaWebApp_war.war.
+    
+2. Ordner erstellen (z.B. "Build of shop finder image"): mit Datei Dockerfile [ohne Erweiterung] und SA_Shop_Finder_war.war
+
+3. Content of file Dockerfile: 
+
+FROM tomcat:9.0.14-jre8-alpine
+COPY SA_Shop_Finder_war.war /usr/local/tomcat/webapps/SA_Shop_Finder.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+
+4. PowerShell: cd <Pfad>\Build of shop finder image
+
+Befehl: docker build -t sa_shopfinder ./
+
+5. Starten des Containers
+Befehl: docker run --name sa_shopfinder -d -p 8080:8080 sa_shopfinder
+
+6. Browser: 127.0.0.1:8080/SA_Shop_Finder/
+
+6. Stoppen des Containers:
+Befehl: docker stop sa_shopfinder
+
+
+Ein paar allgemeine Docker-Befehle:
+======================
+
+docker ps -> laufende Container (Prozesse)
+docker images -> zeigt "Executables"
+
+
+
