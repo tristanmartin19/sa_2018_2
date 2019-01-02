@@ -2,13 +2,116 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="SA_Shop_Finder:war exploded" />
+      <artifact name="SA_Shop_Finder:war" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3de0cea9-96e0-44fb-b0bb-c928ada193f7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/toolbox/calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlets/ShopsAnzeigenServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlets/ShopsAnzeigenServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/COMMIT_EDITMSG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/HEAD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/description" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/applypatch-msg.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/commit-msg.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/fsmonitor-watchman.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/post-update.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/pre-applypatch.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/pre-commit.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/pre-push.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/pre-rebase.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/pre-receive.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/prepare-commit-msg.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/hooks/update.sample" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/info/exclude" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/logs/HEAD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/logs/refs/heads/master" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/logs/refs/remotes/origin/master" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/02/cd1fd1d39133b11ad8b1f8f653fa9e5ba858ee" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/04/4aa00c789a1fd58de9c4e2f495f9e806a6f1b2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/08/3d4cfc61de510dd1f4c9b8e9bb6bd9401f74a3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/12/586f3581990cb3c28d3368c7c31dd18fbfe56e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/13/d61057fe04e6f6999b2336128f14d699f8555f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/13/fa2c1e9ca89ab7e0611c11286f291f9d8c11ff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/15/8f46a87f2c68858e09687446fe01748ad900ff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/18/e79eb172206311e45e76d52950e3c5d3d529c5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/1b/43d50345fa9a46b4a5a7928c9e10df4882050b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/26/89165c618a5b89286901f3e6e4e1e3a5dc7e83" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/2f/a0c7c197d3b31ee5a31e7f2f266d88c96cefe5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/31/ad6f26e1085bad6866773e90d051d7fe1f32d8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/32/6fbb2f2effb5f1a3ce8f1a7062d2479197499a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/34/6b4e927964a61e116a773319ad79f9bc51326f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/35/c53be36eef8b05cd08eee72602432f84ae74e5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/3e/a1b9d900ddd82be5cc001d896028003a784514" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/44/5a29f51ac7d51c25a24ee844f6092e420c7e53" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/45/fa148487950b8e2e6c9f6cfc979254059f7d4d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/49/bc38cc2c580322dd16b14f5f1402d851a46bc5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/4a/f6d33f073267353e3df0ee56e39960884276a1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/4c/c3e41fad60dc7ca9f0e3e132ecad215a64482f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/4f/70611d1bb6016a2669736e098569c8dc3e7ba0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/51/3ae3bd307e78c5a6964596c17b684ec05a1827" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/52/4186bcd8e967a64de213ba539453685726bb29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/54/da376f0625f25f0f893febf48ce1a420d0f513" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/5b/e211021d499af4bc1ff377a71e4baa1a6a4d04" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/5f/8f82765c69189416fd0870ea90699fbbd07255" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/5f/d4f8ce596f6e0b3d9c3c711abd05501e2d4dfd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/62/038dc442ad843170c3cb1582525943e944d415" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/62/ec4f1dad8b0fff888ae3432ffc2ffd66057bdc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/63/378909bcfdf8fe10cf7412b5dd0911735bd738" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/64/5f9e69861b85052e0ff29601eb376ce49fe72e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/64/9a016b7ff1688e1e166a80849ef50a4752af71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/69/99f6304eb2651ed1b241bcf25d76dd98c9e82e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/6c/fe4e1c16128d2cd223055b72ed727ad5a5edc8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/84/05f2aa8a10ac27bff4f2d8c2838be03c55fbfe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/85/e828df1611ee2d8482c28d85220ae60a329785" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/88/66c8abf298f87771ca61685d4adcf06db51289" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/88/ed75c63109fd3207330df83d87097fa67ae39c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/8d/7aab3ed1bfbe9e83e5094584fd098fe3a7daa1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/92/f4ac7924c6f02499b9743a2b33be57e6bed9b8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/94/a25f7f4cb416c083d265558da75d457237d671" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/98/f2cd51f8bd34c7cd9992490bac513a0acb973e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/9b/db1095c21c09a33ef6b32d63979fef64f134fc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/9e/0e16311276270f32d7d02661600efd4c0c6836" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/9e/1c0dcc632b82d5011d5bde37dd4a4b3b790c4d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/a1/63e0d342603d6bcc77a0971b4cb75395ffc343" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/a4/6eacae11c89f2a9097aa4acdbd1b7465b932a7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/a6/73e358444526cd0a7d6405e2fe0183dcefd874" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/aa/0d4e05265288c5107b705e4032c2c94e83f130" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/ab/fa2d4ac6b4c3aa8501116ecb37c0ff73d39473" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/ae/ba04f59a2021877f4ded11716c7785d38d838c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/af/1415eb94b76248a76342fd6d23302b398d51d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/b4/e893c9c008ab1c754f117df7364ea3ce4eab8f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/b6/fb940e6edd0af6d3da59c2684ecf545abc635a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/b8/9bd3556e0d6c893b6a769a74447e63fcf8a9ad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/ba/221f430ade1847ad3f1c3fa37bead09a7777c0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/bf/bb0ff516f3f046809267c4597c1a8c8ba26816" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/c0/2786745c985f7f2548e7a901eefb7fe0d702d3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/c2/4f7e308355dba395440a2fcc7bcdcf8976391a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/c6/f09f7af1832cb87ca3fc5097db2148cad50a2b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/c7/6a1fce7124a223cb46a106952f4b6c65137f1f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/cc/c18f205e9b2058fbe7b852191afedbb49fda33" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/cd/c444dd219e0580fe7c49065293ffacd2ebd07e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/d3/1222dbf625d54d39e288627f30377cf720195e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/d7/b00991b0e8e25a0050f9d1616f92ddf30792b0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/d8/0081d1318531b6c30eaf0d748bf80a0b2e042a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/d9/e0303a8f77be13849dfa81d988660a55d262ae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/db/3e6cafd772b6bc02eab6625c9f3ad12dbfd6a2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/dc/f8082fc9a001ad9abff0450f38f51d5b2409e8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/dd/a286f4545438da7b2c480a6ae49dc5053a9aac" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/e0/41b49656479200b721cb20bc620f75ea652c71" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/e9/8f6299f366f07925b5549cbe128189d083efea" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/e9/a82203a6e5434c2b41b2837d80dbdd70341274" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/f1/1261034b0d6f6c08f0a1e99373406666d04dd5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/objects/f5/275c54e138b40fbfe1cccbe60967f1a0df235a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/refs/heads/master" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.git-CONFLICT-a7be368b6c26038a7717c87f70d67fd3/refs/remotes/origin/master" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SA_Shop_Finder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SA_Shop_Finder.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded/WEB-INF/classes/toolbox/datahandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded/WEB-INF/classes/toolbox/datahandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/toolbox/datahandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/toolbox/datahandler.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,112 +142,26 @@
         <item name="Shop Finder" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Shop Finder" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sa_shop_finder: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Shop Finder" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sa_shop_finder: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="points_of_interest: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Shop Finder" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sa_shop_finder: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="shop_categories: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Shop Finder" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sa_shop_finder: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="shop_has_categories: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Shop Finder" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="sa_shop_finder: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="shops: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1568531970">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="2673" />
-          <entry key="jsp" value="629" />
-          <entry key="sql" value="262" />
-          <entry key="txt" value="184" />
-          <entry key="xml" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2665" />
-          <entry key="JSP" value="629" />
-          <entry key="PLAIN_TEXT" value="184" />
-          <entry key="SQL" value="8" />
-          <entry key="Scratch" value="262" />
-          <entry key="XML" value="8" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="4" />
-          <entry key="jsp" value="3" />
-          <entry key="points_of_interest" value="1" />
-          <entry key="shop_categories" value="2" />
-          <entry key="shop_has_categories" value="1" />
-          <entry key="shops" value="2" />
-          <entry key="sql" value="6" />
-          <entry key="svg" value="1" />
-          <entry key="xml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Database Element" value="6" />
-          <entry key="JAVA" value="4" />
-          <entry key="JSP" value="3" />
-          <entry key="SQL" value="1" />
-          <entry key="SVG" value="1" />
-          <entry key="Scratch" value="5" />
-          <entry key="XML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.js.language.service.starts" />
-      <usages-collector id="statistics.spring.boot.run.usages" />
-      <usages-collector id="statistics.spring.boot.mvc.usages" />
-    </session>
+  <component name="FavoritesManager">
+    <favorites_list name="task4" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ShopsAnzeigenServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="83" column="13" lean-forward="true" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+            <state relative-caret-position="1188">
+              <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -165,38 +182,39 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/toolbox/datahandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+            <state relative-caret-position="1188">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="594">
               <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/Navbar.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
+            <state relative-caret-position="968">
               <caret line="43" column="70" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c7583755-0e71-427f-936c-8435ec47a7ca/console_1.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -204,8 +222,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/toolbox/calculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="561">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -220,7 +238,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -235,18 +253,19 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -265,10 +284,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-13" />
+    <option name="y" value="-13" />
+    <option name="width" value="2185" />
+    <option name="height" value="1399" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -280,90 +299,84 @@
         <subPane>
           <expand>
             <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SA_Shop_Finder" type="462c0819:PsiDirectoryNode" />
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SA_Shop_Finder" type="462c0819:PsiDirectoryNode" />
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="SA_Shop_Finder_war" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="SA_Shop_Finder_war_exploded" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SA_Shop_Finder" type="462c0819:PsiDirectoryNode" />
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SA_Shop_Finder" type="462c0819:PsiDirectoryNode" />
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SA_Shop_Finder" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="toolbox" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SA_Shop_Finder" type="462c0819:PsiDirectoryNode" />
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: mysql:mysql-connector-java:6.0.5" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: mysql:mysql-connector-java:6.0.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="mysql-connector-java-6.0.5.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: mysql:mysql-connector-java:6.0.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="mysql-connector-java-6.0.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mysql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SA_Shop_Finder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: mysql:mysql-connector-java:6.0.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="mysql-connector-java-6.0.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="mysql" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="task4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="task4" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542903444427" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546458037357" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.29655173" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -386,7 +399,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker.Docker Image">
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
@@ -399,11 +412,11 @@
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_SA_Shop_Finder" />
       </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="58893" />
       </RunnerSettings>
@@ -458,6 +471,71 @@
         </option>
       </method>
     </configuration>
+    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="command" value="" />
+          <option name="containerName" value="shopfinder" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="tomcat:latest" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="8080" />
+                <option name="hostIp" value="127.0.0.1" />
+                <option name="hostPort" value="8080" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/usr/local/tomcat/webapps/" />
+                <option name="hostPath" value="C:\Users\Bernd\Documents\Informatik\LV\2018_19\KU SA\Git\sa_2018_2\task4\out\artifacts\SA_Shop_Finder_war" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tomcat-Container" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="command" value="" />
+          <option name="containerName" value="tomcat_shopfinder_complete" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="tomcat:latest" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="8080" />
+                <option name="hostIp" value="127.0.0.1" />
+                <option name="hostPort" value="9999" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/usr/local/tomcat/webapps/" />
+                <option name="hostPath" value="C:\Users\Bernd\Documents\Informatik\LV\2018_19\KU SA\Git\sa_2018_2\task4\out\artifacts\SA_Shop_Finder_war_exploded" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Docker Image" />
+        <item itemvalue="Docker.Docker Image" />
+        <item itemvalue="Docker.Tomcat-Container" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -472,6 +550,13 @@
       <workItem from="1541964742498" duration="4406000" />
       <workItem from="1542218769568" duration="2834000" />
       <workItem from="1542834077226" duration="23073000" />
+      <workItem from="1546416887139" duration="4000" />
+      <workItem from="1546417138745" duration="747000" />
+      <workItem from="1546419225686" duration="12843000" />
+      <workItem from="1546442820984" duration="3826000" />
+      <workItem from="1546446893581" duration="1470000" />
+      <workItem from="1546449304775" duration="1552000" />
+      <workItem from="1546452651221" duration="1972000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1541964880202</created>
@@ -512,38 +597,48 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30313000" />
+    <option name="totallyTimeSpent" value="52727000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-13" y="-13" width="2586" height="1466" extended-state="6" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="UI Designer" order="1" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.50461537" side_tool="true" weight="0.262945" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.25" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.4953846" visible="true" weight="0.36488673" />
+      <window_info id="Structure" order="7" sideWeight="0.50084037" side_tool="true" weight="0.262945" />
       <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.29409385" side_tool="true" visible="true" weight="0.06120761" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32916147" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="5" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32919767" />
       <window_info anchor="bottom" id="Application Servers" order="6" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.32919767" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="TODO" order="13" sideWeight="0.49838188" weight="0.32754344" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.329718" />
+      <window_info anchor="bottom" id="Python Console" order="15" />
+      <window_info anchor="bottom" id="Docker" order="16" sideWeight="0.70590615" visible="true" weight="0.06120761" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.32995737" />
-      <window_info anchor="right" id="Database" order="2" visible="true" weight="0.20842217" />
+      <window_info anchor="right" id="Database" order="2" sideWeight="0.49846154" weight="0.2079288" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Google Cloud Storage" order="5" />
@@ -551,6 +646,10 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="right" id="R Packages" order="10" />
+      <window_info anchor="right" id="SciView" order="11" />
+      <window_info anchor="right" id="R Graphics" order="12" />
+      <window_info anchor="right" id="Maven" order="13" sideWeight="0.50153846" weight="0.2079288" />
     </layout>
     <layout-to-restore>
       <window_info id="Image Layers" order="0" />
@@ -590,9 +689,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Coppied from old Project and Changed some stuff" />
@@ -602,9 +698,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="Testing search fkt" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c7583755-0e71-427f-936c-8435ec47a7ca/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c7583755-0e71-427f-936c-8435ec47a7ca/console.sql" />
     <entry file="das://c7583755-0e71-427f-936c-8435ec47a7ca/schema/sa_shop_finder/table/points_of_interest.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -616,20 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="75" column="10" lean-forward="true" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/Navbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="43" column="70" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -647,13 +727,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://c7583755-0e71-427f-936c-8435ec47a7ca/schema/sa_shop_finder/table/points_of_interest">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c7583755-0e71-427f-936c-8435ec47a7ca/console_1.sql" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/1d92419a9cbf32a060c6bceda3803a2c2b8df01f.svg" />
     <entry file="das://c7583755-0e71-427f-936c-8435ec47a7ca/schema/sa_shop_finder/table/shops">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -661,34 +736,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c7583755-0e71-427f-936c-8435ec47a7ca/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="76" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/1d92419a9cbf32a060c6bceda3803a2c2b8df01f.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ShopsAnzeigenServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="83" column="13" lean-forward="true" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/toolbox/calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+    <entry file="das://c7583755-0e71-427f-936c-8435ec47a7ca/schema/sa_shop_finder/table/points_of_interest">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/toolbox/datahandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        <state relative-caret-position="1188">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/toolbox/calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Servlets/ShopsAnzeigenServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/SA_Shop_Finder_war_exploded/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/Navbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="43" column="70" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -698,11 +793,11 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>SA_Shop_Finder:war exploded</last-edited>
+          <last-edited>SA_Shop_Finder:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.29655173" />
                 <option value="0.5" />
               </list>
             </option>
@@ -751,7 +846,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

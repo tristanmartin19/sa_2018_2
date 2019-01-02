@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Shop Finder" uuid="c7583755-0e71-427f-936c-8435ec47a7ca">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" family="MYSQL" exact-version="0.0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0.0" />
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>
