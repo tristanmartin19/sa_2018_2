@@ -25,20 +25,20 @@ CMD ["catalina.sh", "run"]
 
 Befehl: docker build -t sa_shopfinder ./
 
-5. Starten des Containers
+5. Anlegen und erstmaliges Starten des Containers
 Befehl: docker run --name sa_shopfinder -d -p 8080:8080 sa_shopfinder
 
 6. Browser: 127.0.0.1:8080/SA_Shop_Finder/
 
-6. Stoppen des Containers:
-Befehl: docker stop sa_shopfinder
 
-
-Ein paar allgemeine Docker-Befehle:
+Ein paar weitere Docker-Befehle:
 ======================
 
-docker ps -> laufende Container (Prozesse)
+docker start sa_shopfinder -> Starten des Containers, wenn schon erzeugt
+docker stop sa_shopfinder ->  Stoppen des Containers
+docker ps -> laufende Container ("Prozesse")
 docker images -> zeigt "Executables"
+
 
 
 
