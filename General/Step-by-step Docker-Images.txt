@@ -26,7 +26,7 @@ CMD ["catalina.sh", "run"]
 Befehl: docker build -t sa_shopfinder ./
 
 5. Anlegen und erstmaliges Starten des Containers
-Befehl: docker run --name sa_shopfinder -d -p 8080:8080 sa_shopfinder
+Befehl: docker run -d -p 8080:8080 sa_shopfinder
 
 6. Browser: 127.0.0.1:8080/SA_Shop_Finder/
 
@@ -38,6 +38,19 @@ docker start sa_shopfinder -> Starten des Containers, wenn schon erzeugt
 docker stop sa_shopfinder ->  Stoppen des Containers
 docker ps -> laufende Container ("Prozesse")
 docker images -> zeigt "Executables"
+docker exec -it sa_shopfinder bash -> Bash im Container
+
+
+Erstellen des MySQL-Images
+=================
+Voraussetzung: Docker Desktop/Settings/Shared Drives/C:
+
+docker run -d -v c:/mysqldata:/var/lib/mysql --name test-mysql -e MYSQL_ROOT_PASSWORD=root mysql
+
+Verwendete Webseiten:
+https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c
+https://www.ab-heute-programmieren.de/docker-entwicklungsumgebung-unter-windows-teil-4-mysql/
+
 
 
 
