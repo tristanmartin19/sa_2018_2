@@ -75,7 +75,7 @@ Befehl:
 docker-compose up -> im Docker-Compose_Build_Ordner, mehr ist es nicht ;-)
  
 Weitere Befehle:
-docker-compose down -> alle Container wieder geschlossen 
+docker-compose down -> von einem 2. PowerShell-Fenster aus; alle Container werden wieder geschlossen 
 
  
 
