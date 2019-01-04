@@ -41,8 +41,8 @@ docker images -> zeigt "Executables"
 docker exec -it sa_shopfinder bash -> Bash im Container
 
 
-Erstellen des MySQL-Images
-=================
+Erstellen eines nackten MySQL-Images (NUR ERSTE SCHRITTE, NICHT MEHR AKTUELL]
+====================================
 Voraussetzung: Docker Desktop/Settings/Shared Drives/C:
 
 docker run -d -v c:/mysqldata:/var/lib/mysql --name test-mysql -e MYSQL_ROOT_PASSWORD=root mysql
@@ -50,6 +50,38 @@ docker run -d -v c:/mysqldata:/var/lib/mysql --name test-mysql -e MYSQL_ROOT_PAS
 Verwendete Webseiten:
 https://rominirani.com/docker-on-windows-mounting-host-directories-d96f3f056a2c
 https://www.ab-heute-programmieren.de/docker-entwicklungsumgebung-unter-windows-teil-4-mysql/
+
+
+
+WebApp-Container und MariaDB-Container mit docker-compose- Erzeugen und Linken
+==============================================================================
+
+1. Änderung der Adresse der MariaDB-Datenbank bzw. - Containers
+---------------------------------------------------------------
+datahandler.java: String URL = "...db:3306 ..."; // STATT "...localhost...";
+
+2. Ordnerstruktur für docker-compose
+------------------------------------
+
+<Docker_Compose_Build_Ordner>
+  --docker-compose.yml
+  |--mariadb
+      --sa_shop_finder-dump.sql
+  |--tomcat
+  |   |--webapps
+  |        --SA_Shop_Finder_war.war -> in InttelliJ erzeugen wie gehabt
+  
+Befehl:   
+docker-compose up -> im Docker-Compose_Build_Ordner, mehr ist es nicht ;-)
+ 
+Weitere Befehle:
+docker-compose down -> alle Container wieder geschlossen 
+
+ 
+
+
+
+
 
 
 

@@ -1,0 +1,21 @@
+db:
+  image: mariadb:latest
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: sa_shop_finder
+  volumes:
+    - ./mariadb:/docker-entrypoint-initdb.d
+    #- ./mariadb/data:/var/lib/mysql
+ 
+web:
+  image: tomcat:9.0.14-jre8-alpine
+  environment:
+    JDBC_URL: jdbc:mysql://db:3306/sa_shop_finder?connectTimeout=0&amp;socketTimeout=0&amp;autoReconnect=true
+    JDBC_USER: root
+    JDBC_PASS: root
+  ports:
+    - "8080:8080"
+  volumes:
+    - ./tomcat/webapps:/usr/local/tomcat/webapps
+  links:
+    - db
